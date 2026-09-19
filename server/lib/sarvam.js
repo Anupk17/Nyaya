@@ -1,5 +1,3 @@
-const FormData = require('form-data');
-
 const SARVAM_API_KEY = process.env.SARVAM_API_KEY;
 const BASE_URL = 'https://api.sarvam.ai';
 
@@ -36,17 +34,14 @@ async function speechToText(audioBuffer, originalFilename, mimeType) {
   if (!SARVAM_API_KEY) throw new Error('SARVAM_API_KEY not configured');
 
   const formData = new FormData();
-  formData.append('file', audioBuffer, {
-    filename: originalFilename || 'audio.webm',
-    contentType: mimeType || 'audio/webm'
-  });
+  const blob = new Blob([audioBuffer], { type: mimeType || 'audio/webm' });
+  formData.append('file', blob, originalFilename || 'audio.webm');
   formData.append('model', 'saaras:v1');
 
-  const response = await fetch(`${BASE_URL}/speech-to-text`, {
+  const response = await fetch(`${BASE_URL}/speech-to-text-translate`, {
     method: 'POST',
     headers: {
-      'api-subscription-key': SARVAM_API_KEY,
-      ...formData.getHeaders()
+      'api-subscription-key': SARVAM_API_KEY
     },
     body: formData
   });
