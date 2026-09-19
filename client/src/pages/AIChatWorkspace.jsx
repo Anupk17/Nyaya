@@ -5,7 +5,7 @@ import {
   FolderOpen, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { sendDisputeChatMessage, resolveCustomDispute, uploadEvidenceToS3, analyzeEvidence, simulateMerchantResponse } from '../lib/api';
+import { sendDisputeChatMessage, resolveCustomDispute, uploadEvidenceToS3, analyzeEvidence, simulateMerchantResponse, translateToEnglish, transcribeAudio } from '../lib/api';
 import { buildAgentContextWithMemory } from '../lib/agentContext';
 import { storeMemory } from '../lib/cogneeMemory';
 import { useDisputeStore } from '../store/disputeStore';
@@ -152,6 +152,9 @@ export default function AIChatWorkspace({ useBedrock }) {
   const [messages, setMessages]   = useState(saved || [WELCOME_MSG]);
   const [attachments, setAttachments] = useState([]); // NO default attachment
   const [inputText, setInputText] = useState('');
+  const [isRecording, setIsRecording] = useState(false);
+  const mediaRecorderRef = useRef(null);
+  const audioChunksRef = useRef([]);
   const [isProcessing, setIsProcessing]       = useState(false);
   const [isResolvingPipeline, setIsResolvingPipeline] = useState(false);
   const [verdict, setVerdict]       = useState(null);
@@ -251,6 +254,47 @@ export default function AIChatWorkspace({ useBedrock }) {
 
   // ── handlers ──────────────────────────────────────────────────────────────
 
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      audioChunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) audioChunksRef.current.push(event.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        stream.getTracks().forEach(track => track.stop());
+        setIsProcessing(true);
+        try {
+          const transcribedText = await transcribeAudio(audioBlob);
+          if (transcribedText) setInputText(prev => prev + ' ' + transcribedText);
+        } catch (error) {
+          console.error("STT Error:", error);
+          alert("Failed to transcribe audio.");
+        } finally {
+          setIsProcessing(false);
+        }
+      };
+
+      mediaRecorder.start();
+      setIsRecording(true);
+    } catch (err) {
+      console.error("Error accessing microphone:", err);
+      alert("Microphone access is required to use voice typing.");
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
+  };
+
   const handleApplyPreset = (preset) => {
     setInputText(preset.message);
   };
@@ -260,12 +304,23 @@ export default function AIChatWorkspace({ useBedrock }) {
     const text = inputText.trim();
     if (!text && attachments.length === 0) return;
 
+    let finalContent = text;
+    setIsProcessing(true);
+
+    if (text && /[^\x00-\x7F]/.test(text)) {
+      try {
+        finalContent = await translateToEnglish(text);
+      } catch (err) {
+        console.warn('Translation failed, using original text', err);
+      }
+    }
+
     const currentAtts = [...attachments];
     const ts = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const newMsg = {
       id: `user-${Date.now()}`,
       sender: 'user',
-      content: text || `Submitted ${currentAtts.length} file(s)`,
+      content: finalContent || `Submitted ${currentAtts.length} file(s)`,
       attachments: currentAtts.length > 0 ? currentAtts : undefined,
       timestamp: ts,
     };
@@ -274,7 +329,6 @@ export default function AIChatWorkspace({ useBedrock }) {
     setMessages(updatedMessages);
     setInputText('');
     setAttachments([]);
-    setIsProcessing(true);
 
     try {
       const reply = await sendDisputeChatMessage(updatedMessages, currentAtts);
@@ -1228,6 +1282,18 @@ Powered by Nyaya AI — Paytm Hackathon 2026
                   bubbleSurface: "bg-[#F97316]"
                 }}
               />
+              <MagneticButton>
+                <button
+                  type="button"
+                  onMouseDown={startRecording}
+                  onMouseUp={stopRecording}
+                  onTouchStart={startRecording}
+                  onTouchEnd={stopRecording}
+                  style={{ width: 36, height: 36, borderRadius: '50%', background: isRecording ? '#EF4444' : '#F3F4F6', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0, marginRight: 8, transition: 'background 0.2s' }}
+                >
+                  <Mic size={15} color={isRecording ? 'white' : '#6B7280'} />
+                </button>
+              </MagneticButton>
               <MagneticButton>
                 <button
                   type="submit"

@@ -5,6 +5,9 @@ const { runPipeline } = require('./agents/pipeline');
 const { s3Client, rekognitionClient } = require('./lib/aws');
 const { createPresignedPost } = require('@aws-sdk/s3-request-presigner');
 const { DetectLabelsCommand } = require('@aws-sdk/client-rekognition');
+const multer = require('multer');
+const upload = multer({ storage: multer.memoryStorage() });
+const { translateToEnglish, speechToText } = require('./lib/sarvam');
 
 // GET /api/cases — list all disputes with summary info
 router.get('/cases', async (req, res) => {
@@ -519,6 +522,29 @@ Respond ONLY in this JSON, no other text:
   }
 });
 
+// POST /api/sarvam/translate
+router.post('/sarvam/translate', async (req, res) => {
+  try {
+    const { text } = req.body;
+    if (!text) return res.status(400).json({ success: false, error: 'Text required' });
+    const translated = await translateToEnglish(text);
+    res.json({ success: true, translated });
+  } catch (error) {
+    console.error('Sarvam translate error:', error);
+    res.status(500).json({ success: false, error: 'Failed to translate' });
+  }
+});
+
+// POST /api/sarvam/stt
+router.post('/sarvam/stt', upload.single('audio'), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ success: false, error: 'Audio file required' });
+    const text = await speechToText(req.file.buffer, req.file.originalname, req.file.mimetype);
+    res.json({ success: true, text });
+  } catch (error) {
+    console.error('Sarvam STT error:', error);
+    res.status(500).json({ success: false, error: 'Failed to transcribe audio' });
+  }
+});
+
 module.exports = router;
-
-

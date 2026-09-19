@@ -28,3 +28,5 @@ services:
         value: "true"
       - key: S3_BUCKET_NAME
         sync: false
+      - key: SARVAM_API_KEY
+        sync: false

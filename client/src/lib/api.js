@@ -228,3 +228,33 @@ export async function simulateMerchantResponse(verdict, reasoning) {
   if (!data.success) throw new Error(data.error || 'Failed to simulate merchant response');
   return data.data;
 }
+/**
+ * Translate text to English using Sarvam AI
+ */
+export async function translateToEnglish(text) {
+  const res = await fetch(`${API_BASE}/sarvam/translate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text })
+  });
+  const data = await res.json();
+  if (!data.success) throw new Error(data.error || 'Failed to translate');
+  return data.translated;
+}
+
+/**
+ * Transcribe audio to text using Sarvam AI STT
+ */
+export async function transcribeAudio(audioBlob) {
+  const formData = new FormData();
+  formData.append('audio', audioBlob, 'audio.webm');
+  
+  const res = await fetch(`${API_BASE}/sarvam/stt`, {
+    method: 'POST',
+    body: formData
+  });
+  
+  const data = await res.json();
+  if (!data.success) throw new Error(data.error || 'Failed to transcribe audio');
+  return data.text;
+}
