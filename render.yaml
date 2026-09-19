@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: nyaya-server
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_API_KEY_EVIDENCE
+        sync: false
+      - key: GROQ_API_KEY_MERCHANT
+        sync: false
+      - key: GROQ_API_KEY_CUSTOMER
+        sync: false
+      - key: GROQ_API_KEY_JUDGE
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_REGION
+        value: us-east-1
+      - key: USE_AWS
+        value: "true"
+      - key: S3_BUCKET_NAME
+        sync: false

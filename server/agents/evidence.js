@@ -1,0 +1,89 @@
+const Groq = require('groq-sdk');
+const { bedrockClient } = require('../lib/aws');
+const { InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
+
+const SYSTEM_PROMPT = `You are the Evidence Agent for Nyaya, an AI dispute resolution system.
+You will be given a transaction record and a dispute record.
+Produce a neutral, factual summary of everything relevant to this dispute — do not favor either party.
+Cite specific fields (delivery status, timestamps, chat excerpts) rather than paraphrasing loosely.
+
+Return ONLY valid JSON with no preamble or explanation:
+{
+  "summary": "string — a comprehensive neutral summary of the evidence",
+  "key_facts": ["string — each a specific, citable fact relevant to the dispute"]
+}`;
+
+
+
+async function run(transaction, dispute, options = {}) {
+  const userMessage = `DISPUTE RECORD:\n${JSON.stringify({
+    id: dispute.id,
+    filed_by: dispute.filed_by,
+    filed_at: dispute.filed_at,
+    customer_claim: dispute.customer_claim,
+    merchant_claim: dispute.merchant_claim,
+    proof_attachments: dispute.proof_attachments || [],
+    chat_log: dispute.chat_log,
+    merchant_dispute_history_count: dispute.merchant_dispute_history_count
+  }, null, 2)}\n\nAnalyze all evidence and produce your neutral summary.`;
+
+  if (options.useBedrock) {
+    try {
+      console.log('Evidence Agent: Using AWS Bedrock (Claude 3 Haiku)');
+      const command = new InvokeModelCommand({
+        modelId: 'anthropic.claude-haiku-4-5-20251001-v1:0',
+        contentType: 'application/json',
+        accept: 'application/json',
+        body: JSON.stringify({
+          anthropic_version: "bedrock-2023-05-31",
+          max_tokens: 1024,
+          system: SYSTEM_PROMPT,
+          messages: [{ role: "user", content: userMessage }]
+        })
+      });
+      const response = await bedrockClient.send(command);
+      const responseBody = JSON.parse(new TextDecoder().decode(response.body));
+      const content = responseBody.content[0].text;
+      return JSON.parse(content);
+    } catch (e) {
+      console.warn('Evidence Agent: Bedrock API unavailable or errored, using fallback:', e.message);
+    }
+  } else {
+    const apiKey = process.env.GROQ_API_KEY_EVIDENCE || process.env.GROQ_API_KEY;
+    if (apiKey && apiKey !== 'gsk_your_groq_api_key_here') {
+      try {
+        const groq = new Groq({ apiKey });
+      const userMessage2 = `DISPUTE RECORD:\n${JSON.stringify({
+        id: dispute.id,
+        filed_by: dispute.filed_by,
+        filed_at: dispute.filed_at,
+        customer_claim: dispute.customer_claim,
+        merchant_claim: dispute.merchant_claim
+      }, null, 2)}\n\nAnalyze all evidence and produce your neutral summary.`;
+
+      const completion = await groq.chat.completions.create({
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: userMessage }
+        ],
+        model: 'qwen/qwen3.8-27b',
+        temperature: 0.2,
+        max_tokens: 512,
+        response_format: { type: 'json_object' }
+      });
+
+      const content = completion.choices[0]?.message?.content;
+        return JSON.parse(content);
+      } catch (e) {
+        throw new Error('Groq API unavailable or errored: ' + e.message);
+      }
+    } else {
+      throw new Error('No Groq API key found.');
+    }
+  }
+
+}
+
+module.exports = { run };
+
+

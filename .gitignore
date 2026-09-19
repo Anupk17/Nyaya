@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build output
+client/dist/
+dist/
+
+# Environment files (contain secrets)
+.env
+server/.env
+client/.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# OS
+Thumbs.db

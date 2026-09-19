@@ -1,0 +1,2023 @@
+[
+  {
+    "id": "PTM-84020",
+    "transaction_id": "TXN-85874",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T06:36:34.818Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\n[CUSTOMER DISPUTE STATEMENT]\nCustomer dispute.\n\n[BUYER HISTORY FROM MEMORY]\nMemory unavailable.\n\n[MERCHANT HISTORY FROM MEMORY]\nMemory unavailable.\n\n\n\n\n(Do not quote these memory sections back to the user in your output)\n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T06:37:26.549Z"
+  },
+  {
+    "id": "PTM-93350",
+    "transaction_id": "TXN-86779",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T06:27:36.624Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\n\n=== CUSTOMER DISPUTE STATEMENT ===\nI ordered boAt Airdopes 141 wireless earbuds from QuickMart  Electronics on Paytm. The delivery app marked the order as  delivered yesterday at 3pm but I was home all day and nobody  rang the bell or knocked. There is absolutely NO OTP  confirmation message in my phone. I never received any  package. I have my original Paytm invoice showing ₹2,499  paid and I am filing this complaint within 3 hours of the  supposed delivery time. The courier company is BlueDart and  their app shows delivered but no one came to my door.\n===================================\n\n=== BUYER HISTORY FROM MEMORY ===\nMemory unavailable.\n==================================\n\n=== MERCHANT HISTORY FROM MEMORY ===\nMemory unavailable.\n=====================================\n\n\n\n\n\nINSTRUCTIONS:\n- Base your primary analysis on the dispute statement\n- Use buyer/merchant history to adjust confidence score\n- HIGH fraud risk buyer → lower confidence, stricter scrutiny\n- Merchant with many complaints → higher buyer credibility\n- Reference similar past cases if relevant to this verdict\n- Do not invent facts not present in the dispute statement\n- Mark any unknown fields as UNKNOWN, not as assumed values\n  \n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds from QuickMart  Electronics on Paytm. The delivery app marked the order as  delivered yesterday at 3pm but I was home all day and nobody  rang the bell or knocked. There is absolutely NO OTP  confirmation message in my phone. I never received any  package. I have my original Paytm invoice showing ₹2,499  paid and I am filing this complaint within 3 hours of the  supposed delivery time. The courier company is BlueDart and  their app shows delivered but no one came to my door."
+      },
+      {
+        "from": "merchant",
+        "text": "You have a strong case for the missing boAt Airdopes 141 (₹2,499) since you were home, have no OTP proof, and filed within 3 hours of BlueDart’s false \"delivered\" status. To strengthen this, please screenshot the BlueDart tracking page showing the 3 PM timestamp and any live chat logs with the courier. Your evidence is currently very robust due to the lack of digital confirmation and immediate reporting. Click \"Run Resolution\" for a full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T06:27:57.363Z"
+  },
+  {
+    "id": "PTM-70411",
+    "transaction_id": "TXN-78095",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T06:07:13.683Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\n\n=== CUSTOMER DISPUTE STATEMENT ===\nI ordered boAt Airdopes 141 wireless earbuds from QuickMart  Electronics on Paytm. The delivery app marked the order as  delivered yesterday at 3pm but I was home all day and nobody  rang the bell or knocked. There is absolutely NO OTP  confirmation message in my phone. I never received any  package. I have my original Paytm invoice showing ₹2,499  paid and I am filing this complaint within 3 hours of the  supposed delivery time. The courier company is BlueDart and  their app shows delivered but no one came to my door.\n===================================\n\n=== BUYER HISTORY FROM MEMORY ===\nMemory unavailable.\n==================================\n\n=== MERCHANT HISTORY FROM MEMORY ===\nMemory unavailable.\n=====================================\n\n\n\n\n\nINSTRUCTIONS:\n- Base your primary analysis on the dispute statement\n- Use buyer/merchant history to adjust confidence score\n- HIGH fraud risk buyer → lower confidence, stricter scrutiny\n- Merchant with many complaints → higher buyer credibility\n- Reference similar past cases if relevant to this verdict\n- Do not invent facts not present in the dispute statement\n- Mark any unknown fields as UNKNOWN, not as assumed values\n  \n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds from QuickMart  Electronics on Paytm. The delivery app marked the order as  delivered yesterday at 3pm but I was home all day and nobody  rang the bell or knocked. There is absolutely NO OTP  confirmation message in my phone. I never received any  package. I have my original Paytm invoice showing ₹2,499  paid and I am filing this complaint within 3 hours of the  supposed delivery time. The courier company is BlueDart and  their app shows delivered but no one came to my door."
+      },
+      {
+        "from": "merchant",
+        "text": "Your case is strong because you have the original ₹2,499 invoice, a clear timeline showing you were home, and crucially, the absence of an OTP confirmation for the BlueDart delivery. To further solidify your claim, please provide a screenshot of your phone’s notification log or call history from yesterday at 3 PM proving no contact was made. Since the courier app falsely marks the item as delivered without your verification, you are entitled to a full refund or immediate replacement. Click \"Run Resolution\" to generate your final verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T06:07:37.375Z"
+  },
+  {
+    "id": "PTM-62827",
+    "transaction_id": "TXN-18225",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T06:06:01.591Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\n\n=== CUSTOMER DISPUTE STATEMENT ===\nProduct: boAt Airdopes 141 Wireless Earbuds\nAmount: ₹2499\nMerchant: QuickMart Electronics\nIssue: I ordered boAt Airdopes 141 wireless earbuds from QuickMart \nElectronics on Paytm. The delivery app marked the order as \ndelivered yesterday at 3pm but I was home all day and nobody \nrang the bell or knocked. There is absolutely NO OTP \nconfirmation message in my phone. I never received any \npackage. I have my original Paytm invoice showing ₹2,499 \npaid and I am filing this complaint within 3 hours of the \nsupposed delivery time. The courier company is BlueDart and \ntheir app shows delivered but no one came to my door.\n===================================\n\n=== BUYER HISTORY FROM MEMORY ===\nMemory unavailable.\n==================================\n\n=== MERCHANT HISTORY FROM MEMORY ===\nMemory unavailable.\n=====================================\n\n\n\n\n\nINSTRUCTIONS:\n- Base your primary analysis on the dispute statement\n- Use buyer/merchant history to adjust confidence score\n- HIGH fraud risk buyer → lower confidence, stricter scrutiny\n- Merchant with many complaints → higher buyer credibility\n- Reference similar past cases if relevant to this verdict\n- Do not invent facts not present in the dispute statement\n- Mark any unknown fields as UNKNOWN, not as assumed values\n  \n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "Product: boAt Airdopes 141 Wireless Earbuds\nAmount: ₹2499\nMerchant: QuickMart Electronics\nIssue: I ordered boAt Airdopes 141 wireless earbuds from QuickMart \nElectronics on Paytm. The delivery app marked the order as \ndelivered yesterday at 3pm but I was home all day and nobody \nrang the bell or knocked. There is absolutely NO OTP \nconfirmation message in my phone. I never received any \npackage. I have my original Paytm invoice showing ₹2,499 \npaid and I am filing this complaint within 3 hours of the \nsupposed delivery time. The courier company is BlueDart and \ntheir app shows delivered but no one came to my door."
+      },
+      {
+        "from": "merchant",
+        "text": "Since you have the original invoice for the ₹2,499 boAt Airdopes 141 and can confirm no OTP was received, your claim of non-delivery is well-supported. To solidify your case, please attach a screenshot of the BlueDart tracking page showing the \"delivered\" status alongside a photo of your empty doorstep or a statement from a neighbor confirming no package arrived. This discrepancy between the courier's status and your lack of physical receipt makes your case look strong. Please click \"Run Resolution\" for a full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T06:06:25.359Z"
+  },
+  {
+    "id": "PTM-92338",
+    "transaction_id": "TXN-58692",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T04:47:04.633Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\n\n=== CUSTOMER DISPUTE STATEMENT ===\nProduct: boAt Airdopes 141 Wireless Earbuds\nAmount: ₹2499\nMerchant: QuickMart Electronics\nIssue: I ordered boAt Airdopes 141 wireless earbuds from QuickMart \nElectronics on Paytm. The delivery app marked the order as \ndelivered yesterday at 3pm but I was home all day and nobody \nrang the bell or knocked. There is absolutely NO OTP \nconfirmation message in my phone. I never received any \npackage. I have my original Paytm invoice showing ₹2,499 \npaid and I am filing this complaint within 3 hours of the \nsupposed delivery time. The courier company is BlueDart and \ntheir app shows delivered but no one came to my door.\n===================================\n\n=== BUYER HISTORY FROM MEMORY ===\nMemory unavailable.\n==================================\n\n=== MERCHANT HISTORY FROM MEMORY ===\nMemory unavailable.\n=====================================\n\n\n\n\n\nINSTRUCTIONS:\n- Base your primary analysis on the dispute statement\n- Use buyer/merchant history to adjust confidence score\n- HIGH fraud risk buyer → lower confidence, stricter scrutiny\n- Merchant with many complaints → higher buyer credibility\n- Reference similar past cases if relevant to this verdict\n- Do not invent facts not present in the dispute statement\n- Mark any unknown fields as UNKNOWN, not as assumed values\n  \n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "Product: boAt Airdopes 141 Wireless Earbuds\nAmount: ₹2499\nMerchant: QuickMart Electronics\nIssue: I ordered boAt Airdopes 141 wireless earbuds from QuickMart \nElectronics on Paytm. The delivery app marked the order as \ndelivered yesterday at 3pm but I was home all day and nobody \nrang the bell or knocked. There is absolutely NO OTP \nconfirmation message in my phone. I never received any \npackage. I have my original Paytm invoice showing ₹2,499 \npaid and I am filing this complaint within 3 hours of the \nsupposed delivery time. The courier company is BlueDart and \ntheir app shows delivered but no one came to my door."
+      },
+      {
+        "from": "merchant",
+        "text": "Since the BlueDart app falsely marked your ₹2,499 boAt Airdopes 141 order as delivered without an OTP or physical receipt, your case is strong, especially given the lack of delivery proof and your prompt complaint. To further solidify this, please gather any CCTV footage from your doorstep and a screenshot of the BlueDart tracking history showing the discrepancy. Click \"Run Resolution\" to receive your full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T04:47:09.050Z"
+  },
+  {
+    "id": "PTM-94829",
+    "transaction_id": "TXN-80257",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:24:32.932Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\nhello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nordered a Ceramic Dinner Set (12 pieces) from  HomeStyle Décor for ₹2,150 on Paytm. Order ID: PTM-88217.  Delivery was OTP confirmed yesterday. When I unpacked the  box I found that 3 of the 12 plates are cracked. The other  9 pieces are perfectly fine. I have clear photos of the 3  broken plates taken within 1 hour of opening the box.  My invoice shows 12 piece set for ₹2,150.  The merchant's listing said items are packed with  bubble wrap but clearly the packaging was insufficient  for 3 of the pieces.  I want compensation for the damaged pieces.\n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Your claim is strong because the absence of an OTP confirmation directly contradicts the \"delivered\" status, and your prompt filing within 3 hours adds significant credibility. To further solidify this, please ensure you have screenshots of your empty SMS inbox and any chat logs with the delivery partner confirming no package was handed over. Based on these details, your case for a refund or redelivery looks very robust. Please click \"Run Resolution\" to receive your full verdict."
+      },
+      {
+        "from": "customer",
+        "text": "ordered a Ceramic Dinner Set (12 pieces) from  HomeStyle Décor for ₹2,150 on Paytm. Order ID: PTM-88217.  Delivery was OTP confirmed yesterday. When I unpacked the  box I found that 3 of the 12 plates are cracked. The other  9 pieces are perfectly fine. I have clear photos of the 3  broken plates taken within 1 hour of opening the box.  My invoice shows 12 piece set for ₹2,150.  The merchant's listing said items are packed with  bubble wrap but clearly the packaging was insufficient  for 3 of the pieces.  I want compensation for the damaged pieces."
+      },
+      {
+        "from": "merchant",
+        "text": "I understand you received a 12-piece Ceramic Dinner Set from HomeStyle Décor where 3 plates arrived cracked despite OTP-confirmed delivery. Your case looks strong because you have timely photos of the damage and can point to the merchant’s failure to use the advertised bubble wrap packaging. To solidify your claim for compensation on the damaged items, please ensure your photos clearly show the cracks and the original packaging condition. Click \"Run Resolution\" for a full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T02:26:02.029Z"
+  },
+  {
+    "id": "PTM-16172",
+    "transaction_id": "TXN-28473",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:22:29.566Z",
+    "customer_claim": "\n=== CUSTOMER DISPUTE STATEMENT ===\nhello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nordered a Ceramic Dinner Set (12 pieces) from  HomeStyle Décor for ₹2,150 on Paytm. Order ID: PTM-88217.  Delivery was OTP confirmed yesterday. When I unpacked the  box I found that 3 of the 12 plates are cracked. The other  9 pieces are perfectly fine. I have clear photos of the 3  broken plates taken within 1 hour of opening the box.  My invoice shows 12 piece set for ₹2,150.  The merchant's listing said items are packed with  bubble wrap but clearly the packaging was insufficient  for 3 of the pieces.  I want compensation for the damaged pieces.\n===================================\n\nINSTRUCTIONS:\n- Base your ENTIRE analysis on the statement above only\n- Do not reference any transaction IDs not mentioned above\n- Do not reference any merchant names not mentioned above  \n- If the customer did not mention OTP status, mark as UNKNOWN\n- If the customer did not mention photos, mark as NOT_PROVIDED\n- If the customer did not mention invoice, mark as NOT_PROVIDED\n- Do not invent any facts. Only use what is written above.\n- UNKNOWN fields lower confidence score, never cause ESCALATE\n  unless fraud is specifically suspected\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Your claim is strong because the absence of an OTP confirmation directly contradicts the \"delivered\" status, and your prompt filing within 3 hours adds significant credibility. To further solidify this, please ensure you have screenshots of your empty SMS inbox and any chat logs with the delivery partner confirming no package was handed over. Based on these details, your case for a refund or redelivery looks very robust. Please click \"Run Resolution\" to receive your full verdict."
+      },
+      {
+        "from": "customer",
+        "text": "ordered a Ceramic Dinner Set (12 pieces) from  HomeStyle Décor for ₹2,150 on Paytm. Order ID: PTM-88217.  Delivery was OTP confirmed yesterday. When I unpacked the  box I found that 3 of the 12 plates are cracked. The other  9 pieces are perfectly fine. I have clear photos of the 3  broken plates taken within 1 hour of opening the box.  My invoice shows 12 piece set for ₹2,150.  The merchant's listing said items are packed with  bubble wrap but clearly the packaging was insufficient  for 3 of the pieces.  I want compensation for the damaged pieces."
+      },
+      {
+        "from": "merchant",
+        "text": "I understand you received a 12-piece Ceramic Dinner Set from HomeStyle Décor where 3 plates arrived cracked despite OTP-confirmed delivery. Your case looks strong because you have timely photos of the damage and can point to the merchant’s failure to use the advertised bubble wrap packaging. To solidify your claim for compensation on the damaged items, please ensure your photos clearly show the cracks and the original packaging condition. Click \"Run Resolution\" for a full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T02:23:43.596Z"
+  },
+  {
+    "id": "PTM-78041",
+    "transaction_id": "TXN-37944",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:09:12.688Z",
+    "customer_claim": "\n    DISPUTE DETAILS FROM CUSTOMER:\n    \"hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\"\n    \n    Extract and analyze:\n    - Product mentioned (if any)\n    - Amount mentioned (if any)  \n    - Issue type (non-delivery/damage/wrong item/other)\n    - Evidence mentioned (OTP/photo/invoice/none)\n    - Time since incident (if mentioned)\n    - Any fraud indicators\n    \n    Base your entire analysis on what is written above.\n    Do not invent facts not present in the customer statement.\n    If information is missing, note it as UNKNOWN.\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Your claim is strong because the absence of an OTP confirmation directly contradicts the \"delivered\" status, and your prompt filing within 3 hours adds significant credibility. To further solidify this, please ensure you have screenshots of your empty SMS inbox and any chat logs with the delivery partner confirming no package was handed over. Based on these details, your case for a refund or redelivery looks very robust. Please click \"Run Resolution\" to receive your full verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T02:09:33.926Z"
+  },
+  {
+    "id": "PTM-30331",
+    "transaction_id": "TXN-63559",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:08:30.992Z",
+    "customer_claim": "\n    DISPUTE DETAILS FROM CUSTOMER:\n    \"hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\"\n    \n    Extract and analyze:\n    - Product mentioned (if any)\n    - Amount mentioned (if any)  \n    - Issue type (non-delivery/damage/wrong item/other)\n    - Evidence mentioned (OTP/photo/invoice/none)\n    - Time since incident (if mentioned)\n    - Any fraud indicators\n    \n    Base your entire analysis on what is written above.\n    Do not invent facts not present in the customer statement.\n    If information is missing, note it as UNKNOWN.\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-46598",
+    "transaction_id": "TXN-34139",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:03:17.298Z",
+    "customer_claim": "\n    DISPUTE DETAILS FROM CUSTOMER:\n    \"hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\"\n    \n    Extract and analyze:\n    - Product mentioned (if any)\n    - Amount mentioned (if any)  \n    - Issue type (non-delivery/damage/wrong item/other)\n    - Evidence mentioned (OTP/photo/invoice/none)\n    - Time since incident (if mentioned)\n    - Any fraud indicators\n    \n    Base your entire analysis on what is written above.\n    Do not invent facts not present in the customer statement.\n    If information is missing, note it as UNKNOWN.\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-87490",
+    "transaction_id": "TXN-27699",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:03:16.549Z",
+    "customer_claim": "\n    DISPUTE DETAILS FROM CUSTOMER:\n    \"hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\"\n    \n    Extract and analyze:\n    - Product mentioned (if any)\n    - Amount mentioned (if any)  \n    - Issue type (non-delivery/damage/wrong item/other)\n    - Evidence mentioned (OTP/photo/invoice/none)\n    - Time since incident (if mentioned)\n    - Any fraud indicators\n    \n    Base your entire analysis on what is written above.\n    Do not invent facts not present in the customer statement.\n    If information is missing, note it as UNKNOWN.\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-83771",
+    "transaction_id": "TXN-85309",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T02:03:14.567Z",
+    "customer_claim": "\n    DISPUTE DETAILS FROM CUSTOMER:\n    \"hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\"\n    \n    Extract and analyze:\n    - Product mentioned (if any)\n    - Amount mentioned (if any)  \n    - Issue type (non-delivery/damage/wrong item/other)\n    - Evidence mentioned (OTP/photo/invoice/none)\n    - Time since incident (if mentioned)\n    - Any fraud indicators\n    \n    Base your entire analysis on what is written above.\n    Do not invent facts not present in the customer statement.\n    If information is missing, note it as UNKNOWN.\n    ",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "I got your message. Describe your dispute in more detail or click \"Run Resolution\" when ready to get an AI verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-35632",
+    "transaction_id": "TXN-23676",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T01:51:28.279Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T01:51:28.695Z"
+  },
+  {
+    "id": "PTM-35848",
+    "transaction_id": "TXN-43867",
+    "filed_by": "customer",
+    "filed_at": "2026-09-18T01:50:59.236Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-18T01:50:59.701Z"
+  },
+  {
+    "id": "PTM-47044",
+    "transaction_id": "TXN-43003",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:13:30.933Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:13:30.936Z"
+  },
+  {
+    "id": "PTM-12841",
+    "transaction_id": "TXN-96190",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:13:28.687Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\nI bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "I bought a Designer Kurta Set from FashionHub India  for ₹3,499 on Paytm. Order ID: PTM-88214.  The delivery was confirmed with OTP 5 days ago.  I received the correct item in perfect condition.  But now I want to return it because the color looks  slightly different in real life vs the website photo.  I didn't take any unboxing photos. No damage happened.  I want a full refund of ₹3,499."
+      },
+      {
+        "from": "merchant",
+        "text": "Understood — damaged or defective delivery is covered under Paytm's seller liability policy. Attaching an unboxing photo will strengthen your claim.\n\nYour case looks eligible for a full refund. Click \"Run Resolution\" to get an instant verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:13:28.689Z"
+  },
+  {
+    "id": "PTM-33630",
+    "transaction_id": "TXN-26746",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:13:03.695Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:13:03.698Z"
+  },
+  {
+    "id": "PTM-34549",
+    "transaction_id": "TXN-72775",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:12:50.408Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:12:50.414Z"
+  },
+  {
+    "id": "PTM-12634",
+    "transaction_id": "TXN-83081",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:10:29.214Z",
+    "customer_claim": "hello\n\nheelo\n\nhello\n\nHI\n\nhow does it work\n\n\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "heelo"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "hello"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      },
+      {
+        "from": "customer",
+        "text": "HI"
+      },
+      {
+        "from": "merchant",
+        "text": "Hello! I'm Nyaya, your AI dispute assistant. Tell me what went wrong with your order or transaction and I'll help you get it resolved. You can also use the \"File a New Dispute\" form to provide structured details."
+      },
+      {
+        "from": "customer",
+        "text": "how does it work"
+      },
+      {
+        "from": "merchant",
+        "text": "Could you provide more details about your dispute? For example: what product did you order, what went wrong, and when did it happen? You can also use the \"File a New Dispute\" form for a structured submission."
+      },
+      {
+        "from": "customer",
+        "text": "\"I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499  from QuickMart Electronics on Paytm. Order ID: PTM-88213.  The delivery app shows delivered yesterday at 3pm but I was  home all day and nobody rang the bell. There is NO OTP  confirmation in my messages. I never received any package.  I have my original Paytm invoice showing ₹2,499 paid.  I filed this complaint within 3 hours of the supposed delivery."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:10:29.218Z"
+  },
+  {
+    "id": "PTM-77636",
+    "transaction_id": "TXN-64892",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:07:51.997Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth 2499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing 2499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-17T18:07:52.002Z"
+  },
+  {
+    "id": "PTM-54942",
+    "transaction_id": "TXN-17736",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:07:14.318Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth 2499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing 2499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-83613",
+    "transaction_id": "TXN-45008",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:06:53.276Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth 2499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing 2499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-42768",
+    "transaction_id": "TXN-43099",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:05:23.007Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-35944",
+    "transaction_id": "TXN-21268",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:04:58.227Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-97409",
+    "transaction_id": "TXN-13595",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:04:23.126Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-99024",
+    "transaction_id": "TXN-41240",
+    "filed_by": "customer",
+    "filed_at": "2026-09-17T18:03:35.099Z",
+    "customer_claim": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nDescribe what happened with your order, transaction, or delivery. You can also attach photos or receipts as evidence. I will analyze your situation and help determine refund eligibility."
+      },
+      {
+        "from": "customer",
+        "text": "I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute."
+      },
+      {
+        "from": "merchant",
+        "text": "Non-delivery without verified proof of delivery (OTP or signature) is a direct policy violation. Mention if the courier marked it delivered without your OTP.\n\nThis typically results in an automatic 100% refund. Click \"Run Resolution\" to get your verdict."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-34518",
+    "transaction_id": "TXN-74161",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T15:26:33.101Z",
+    "customer_claim": "Customer dispute alleging item defect or non-delivery.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [
+      {
+        "id": "default-att",
+        "name": "damaged_headphone_unboxing.jpg",
+        "type": "image/jpeg",
+        "description": "Photo showing cracked plastic casing on right hinge."
+      }
+    ],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nExplain what happened with your order, transaction, or delivery and attach any photos or receipts. I will analyze your situation and convene our 4 AI Agents to determine refund eligibility instantly."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T15:26:33.105Z"
+  },
+  {
+    "id": "PTM-31058",
+    "transaction_id": "TXN-16985",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T15:25:35.854Z",
+    "customer_claim": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nExplain what happened with your order, transaction, or delivery and attach any photos or receipts. I will analyze your situation and convene our 4 AI Agents to determine refund eligibility instantly."
+      },
+      {
+        "from": "customer",
+        "text": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings."
+      },
+      {
+        "from": "merchant",
+        "text": "Counterfeit items violate our Zero-Tolerance Merchant Integrity policy. The proof files you uploaded (serial_check_error.png) will be cross-referenced against brand registries.\n\nOur Judge Agent flags verified counterfeit claims as high-priority fraud cases for immediate full refund and merchant audit. Ready to resolve this? Click \"Run 4-Agent Resolution\"!"
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T15:25:35.857Z"
+  },
+  {
+    "id": "PTM-96274",
+    "transaction_id": "TXN-89795",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T15:25:33.893Z",
+    "customer_claim": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nExplain what happened with your order, transaction, or delivery and attach any photos or receipts. I will analyze your situation and convene our 4 AI Agents to determine refund eligibility instantly."
+      },
+      {
+        "from": "customer",
+        "text": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings."
+      },
+      {
+        "from": "merchant",
+        "text": "Counterfeit items violate our Zero-Tolerance Merchant Integrity policy. The proof files you uploaded (serial_check_error.png) will be cross-referenced against brand registries.\n\nOur Judge Agent flags verified counterfeit claims as high-priority fraud cases for immediate full refund and merchant audit. Ready to resolve this? Click \"Run 4-Agent Resolution\"!"
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T15:25:33.897Z"
+  },
+  {
+    "id": "PTM-99417",
+    "transaction_id": "TXN-50436",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T15:25:31.078Z",
+    "customer_claim": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings.",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "Welcome to Nyaya AI Dispute Assistant.\n\nExplain what happened with your order, transaction, or delivery and attach any photos or receipts. I will analyze your situation and convene our 4 AI Agents to determine refund eligibility instantly."
+      },
+      {
+        "from": "customer",
+        "text": "The serial number on the box is unrecognized on the official brand registry. The audio quality is distorted and the case lacks serial engravings."
+      },
+      {
+        "from": "merchant",
+        "text": "Counterfeit items violate our Zero-Tolerance Merchant Integrity policy. The proof files you uploaded (serial_check_error.png) will be cross-referenced against brand registries.\n\nOur Judge Agent flags verified counterfeit claims as high-priority fraud cases for immediate full refund and merchant audit. Ready to resolve this? Click \"Run 4-Agent Resolution\"!"
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T15:25:31.081Z"
+  },
+  {
+    "id": "PTM-60852",
+    "transaction_id": "TXN-64461",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T15:09:49.848Z",
+    "customer_claim": "hi",
+    "merchant_claim": "Fulfillment dispatched per standard catalog specification. Carrier manifest recorded successful handover.",
+    "proof_attachments": [],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "👋 Welcome to Nyaya AI Dispute Assistant.\n\nExplain what happened with your order, transaction, or delivery and attach any photos/receipts. I will analyze your situation and convene our 4 AI Agents (Evidence Agent, Merchant Advocate, Customer Advocate, and Neutral Judge) to determine refund eligibility instantly."
+      },
+      {
+        "from": "customer",
+        "text": "hi"
+      },
+      {
+        "from": "merchant",
+        "text": "Thank you for detailing your dispute. You can attach photos, invoices, or delivery screenshots above to strengthen your claim.\n\nNyaya is ready to arbitrate your dispute across all 4 AI agents (Evidence, Merchant Advocate, Customer Advocate, and Neutral Judge). Click \"Run 4-Agent Resolution\" to generate your official verdict and instant refund status!"
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T15:09:49.861Z"
+  },
+  {
+    "id": "PTM-70624",
+    "transaction_id": "TXN-94045",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T12:53:12.968Z",
+    "customer_claim": "I received an Olive Green kurta in Medium size instead of Maroon XL. The seller claims it is within normal color variation, but this is a completely wrong product.",
+    "merchant_claim": "The merchant dispatched FabIndia Silk Kurta (Maroon / XL) per order specifications via BlueDart Express. Standard fulfillment protocols were observed.",
+    "proof_attachments": [
+      {
+        "id": "preset-1789390390147",
+        "name": "delivered_item_vs_listing.jpg",
+        "type": "image/jpeg",
+        "description": "Side-by-side comparison photo showing delivered Olive Green tag vs order receipt for Maroon XL.",
+        "dataUrl": null
+      }
+    ],
+    "chat_log": [
+      {
+        "from": "merchant",
+        "text": "👋 Hello! I am **Nyaya Dispute Copilot**.\n\nTell me what went wrong with your order or transaction, and attach photos or receipts as proof. I will analyze your evidence and bring your case before our **4-Agent Court** for an instant resolution and refund determination."
+      }
+    ],
+    "merchant_dispute_history_count": 2,
+    "status": "escalated",
+    "escalation_reason": "Low confidence — requires human investigation",
+    "escalated_at": "2026-09-14T12:53:12.981Z"
+  },
+  {
+    "id": "PTM-99394",
+    "transaction_id": "TXN-12716",
+    "filed_by": "customer",
+    "filed_at": "2026-09-14T12:47:05.258Z",
+    "customer_claim": "Screen arrived with dead pixels and crushed box.",
+    "merchant_claim": "The order was processed and dispatched per standard marketplace terms.",
+    "proof_attachments": [
+      {
+        "name": "screen_defect.jpg",
+        "description": "Photo of dead pixels"
+      }
+    ],
+    "chat_log": [],
+    "merchant_dispute_history_count": 1,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-88213",
+    "transaction_id": "TXN-10234",
+    "filed_by": "customer",
+    "filed_at": "2026-09-11T09:00:00Z",
+    "customer_claim": "I never received the earbuds. The delivery partner marked it as delivered but nobody came to my door. I was home all day and checked with my neighbors — nothing was delivered.",
+    "merchant_claim": "Our logistics partner confirms the item was delivered on September 10th. The tracking shows successful drop-off at the registered address. We fulfilled our obligation.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "Hi, I ordered earbuds 2 days ago and tracking says delivered but I never got them."
+      },
+      {
+        "from": "merchant",
+        "text": "Hello, our records show the item was delivered to your address on Sept 10."
+      },
+      {
+        "from": "customer",
+        "text": "I was home the entire day. Nobody rang the bell or called me. Can you share proof of delivery?"
+      },
+      {
+        "from": "merchant",
+        "text": "The delivery partner has marked it as delivered. We consider this order fulfilled."
+      },
+      {
+        "from": "customer",
+        "text": "That's not proof. There's no OTP, no signature, no photo. I want a refund."
+      }
+    ],
+    "merchant_dispute_history_count": 2,
+    "status": "resolved",
+    "resolved_at": "2026-09-14T12:36:58.686Z"
+  },
+  {
+    "id": "PTM-88214",
+    "transaction_id": "TXN-10235",
+    "filed_by": "customer",
+    "filed_at": "2026-09-11T14:30:00Z",
+    "customer_claim": "The kurta set I received is a completely different color than what was shown in the listing. I ordered maroon but received brown. The size is also slightly off — the measurements don't match the size chart.",
+    "merchant_claim": "The product shipped matches the listing exactly. Color variations can occur due to screen settings and lighting during photography. Our size chart clearly states measurements may vary by ±1 inch. The OTP was verified on delivery, confirming the customer accepted the package.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "The kurta color is completely wrong. I ordered maroon, this is brown."
+      },
+      {
+        "from": "merchant",
+        "text": "Ma'am, slight color variations are normal due to screen calibration. This is mentioned in our product description."
+      },
+      {
+        "from": "customer",
+        "text": "This isn't a slight variation — it's a different color entirely. Also the size is wrong, the shoulder width is 2 inches more than your chart says."
+      },
+      {
+        "from": "merchant",
+        "text": "Our listing mentions ±1 inch variation. We can't accept returns for color perception differences. The OTP delivery was confirmed."
+      },
+      {
+        "from": "customer",
+        "text": "You're hiding behind fine print. The product doesn't match what was advertised."
+      }
+    ],
+    "merchant_dispute_history_count": 1,
+    "status": "resolved",
+    "resolved_at": "2026-09-14T12:40:10.193Z"
+  },
+  {
+    "id": "PTM-88215",
+    "transaction_id": "TXN-10236",
+    "filed_by": "customer",
+    "filed_at": "2026-09-10T11:00:00Z",
+    "customer_claim": "I changed my mind about the USB cables after ordering. I tried to cancel within 30 minutes but the app wouldn't let me. I don't want these cables anymore.",
+    "merchant_claim": "The order was shipped within 20 minutes of placement as per our express shipping commitment. Cancellation window had passed. The item was delivered successfully and is a non-defective, sealed product. Our return policy clearly states cables are non-returnable once delivered.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "I want to cancel my order for the USB cables."
+      },
+      {
+        "from": "merchant",
+        "text": "Sorry, this order has already been shipped. We process express orders within 15 minutes."
+      },
+      {
+        "from": "customer",
+        "text": "But I tried to cancel within 30 minutes of ordering!"
+      },
+      {
+        "from": "merchant",
+        "text": "As mentioned in our listing, express items ship immediately and cancellations are not possible once shipped. The item has been delivered successfully."
+      },
+      {
+        "from": "customer",
+        "text": "This is unfair. I should be able to return an unused product."
+      }
+    ],
+    "merchant_dispute_history_count": 2,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-88216",
+    "transaction_id": "TXN-10237",
+    "filed_by": "customer",
+    "filed_at": "2026-09-08T08:00:00Z",
+    "customer_claim": "I received the smartwatch but it's clearly a counterfeit product. The packaging is different from the official brand, the watch face has dead pixels, and the serial number doesn't match any official records. This merchant is selling fakes.",
+    "merchant_claim": "We are an authorized reseller. Packaging may differ for bulk orders. The product is genuine and comes with a 1-year warranty card included in the box. The customer has not provided any evidence from the official brand confirming it's counterfeit.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "This smartwatch is fake. The packaging is totally different from official ones I've seen."
+      },
+      {
+        "from": "merchant",
+        "text": "Sir, we source directly from the manufacturer. Packaging sometimes varies by batch."
+      },
+      {
+        "from": "customer",
+        "text": "The screen has dead pixels and the serial number isn't registered with the brand. I checked on their website."
+      },
+      {
+        "from": "merchant",
+        "text": "Dead pixels may be a transit damage issue. We can offer a replacement. Serial numbers take 48 hours to register in the system."
+      },
+      {
+        "from": "customer",
+        "text": "I've read reviews — 3 other buyers reported the same issues with your products. You're selling counterfeits."
+      },
+      {
+        "from": "merchant",
+        "text": "Those reviews are from competitors. We stand by our product quality."
+      }
+    ],
+    "merchant_dispute_history_count": 5,
+    "status": "escalated",
+    "escalation_reason": "Fraud pattern detected",
+    "escalated_at": "2026-09-14T15:33:19.104Z"
+  },
+  {
+    "id": "PTM-88217",
+    "transaction_id": "TXN-10238",
+    "filed_by": "customer",
+    "filed_at": "2026-09-09T16:00:00Z",
+    "customer_claim": "I ordered a 12-piece dinner set but only received 9 pieces. Three plates were missing from the box. The remaining pieces also have minor chips on the edges, likely from poor packaging during shipping.",
+    "merchant_claim": "We packed all 12 pieces as per the order. Our warehouse QC photos show the complete set before dispatch. If items were damaged or missing, it's a logistics issue, not ours. We did provide signature-confirmed delivery.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "Only 9 out of 12 pieces arrived. 3 plates are missing and some pieces have chips."
+      },
+      {
+        "from": "merchant",
+        "text": "We have warehouse photos showing all 12 pieces packed. This might be a courier issue."
+      },
+      {
+        "from": "customer",
+        "text": "Whether it's your fault or the courier's, I paid for 12 pieces and got 9 damaged ones."
+      },
+      {
+        "from": "merchant",
+        "text": "We understand your frustration. We can send the missing 3 pieces as a replacement."
+      },
+      {
+        "from": "customer",
+        "text": "What about the chipped pieces? I want a partial refund for the damage at minimum."
+      }
+    ],
+    "merchant_dispute_history_count": 0,
+    "status": "pending"
+  },
+  {
+    "id": "PTM-88218",
+    "transaction_id": "TXN-10239",
+    "filed_by": "customer",
+    "filed_at": "2026-09-09T10:00:00Z",
+    "customer_claim": "I ordered noise cancelling headphones 5 days ago and they still show 'in transit' with no tracking updates for 3 days. The merchant isn't responding to messages. I've seen multiple complaints online about this seller never shipping items and keeping the money.",
+    "merchant_claim": "The item is in transit and will be delivered within the extended delivery window. Our courier partner is experiencing delays in the customer's region. We have responded to the customer on our official email.",
+    "chat_log": [
+      {
+        "from": "customer",
+        "text": "My order has been 'in transit' for 3 days with no tracking update. What's going on?"
+      },
+      {
+        "from": "customer",
+        "text": "Hello? Is anyone there? It's been 2 days since my last message."
+      },
+      {
+        "from": "merchant",
+        "text": "Apologies for the delay. The courier is facing regional delays. Your order will arrive soon."
+      },
+      {
+        "from": "customer",
+        "text": "When exactly? The tracking hasn't moved. Other people online say you never ship orders."
+      },
+      {
+        "from": "customer",
+        "text": "It's been 5 days now. I want my money back immediately."
+      }
+    ],
+    "merchant_dispute_history_count": 8,
+    "status": "pending"
+  }
+]

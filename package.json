@@ -1,0 +1,15 @@
+{
+  "name": "nyaya",
+  "version": "1.0.0",
+  "description": "Nyaya — Autonomous AI Dispute Resolution System",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run cognee\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm run dev",
+    "cognee": "python cognee_server.py",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
