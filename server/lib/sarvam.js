@@ -36,7 +36,7 @@ async function speechToText(audioBuffer, originalFilename, mimeType) {
   const formData = new FormData();
   const blob = new Blob([audioBuffer], { type: mimeType || 'audio/webm' });
   formData.append('file', blob, originalFilename || 'audio.webm');
-  formData.append('model', 'saaras:v1');
+  formData.append('model', 'saaras:v3');
 
   const response = await fetch(`${BASE_URL}/speech-to-text-translate`, {
     method: 'POST',
