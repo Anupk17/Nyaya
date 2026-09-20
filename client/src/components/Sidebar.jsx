@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, FileText, BarChart2, Scale } from 'lucide-react';
+import { MessageSquare, FileText, BarChart2, Scale, FlaskConical } from 'lucide-react';
 import { checkBackendHealth } from '../lib/healthCheck';
 import { checkMemoryHealth } from '../lib/cogneeMemory';
 
 const NAV = [
-  { name: 'AI Dispute Assistant',    path: '/',       icon: MessageSquare },
+  { name: 'AI Dispute Assistant',    path: '/chat',       icon: MessageSquare },
   { name: 'Dispute Cases Queue',     path: '/cases',  icon: FileText      },
   { name: 'Resolution Analytics',    path: '/impact', icon: BarChart2     },
+  { name: 'Training Studio',         path: '/training', icon: FlaskConical  },
 ];
 
 export default function Sidebar() {

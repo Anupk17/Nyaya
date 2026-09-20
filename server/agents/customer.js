@@ -1,8 +1,10 @@
 const Groq = require('groq-sdk');
 const { bedrockClient } = require('../lib/aws');
 const { InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
+const { PLATFORM_CONFIGS } = require('../config/platformConfig');
 
-const SYSTEM_PROMPT = `You represent the CUSTOMER in this dispute.
+const getSystemPrompt = (config) => `You represent the CUSTOMER in this dispute for ${config.name}.
+Apply the ${config.consumerProtectionLaw} to protect the customer's interests.
 Given the evidence summary and the customer's original claim, make the strongest honest case for the customer's position.
 Do not fabricate evidence that wasn't provided.
 Acknowledge weaknesses if the evidence contradicts the customer's claim.
@@ -16,6 +18,10 @@ Return ONLY valid JSON with no preamble or explanation:
 
 
 async function run(evidenceSummary, customerClaim, disputeId, options = {}) {
+  const platform = options.platform || 'paytm';
+  const config = PLATFORM_CONFIGS[platform] || PLATFORM_CONFIGS.paytm;
+  const SYSTEM_PROMPT = getSystemPrompt(config);
+
   const userMessage = `EVIDENCE SUMMARY:\n${JSON.stringify(evidenceSummary, null, 2)}\n\nCUSTOMER'S ORIGINAL CLAIM:\n${customerClaim}\n\nPresent the strongest honest case for the customer.`;
 
   if (options.useBedrock) {

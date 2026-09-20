@@ -5,7 +5,8 @@ import {
   FolderOpen, ChevronDown, ChevronUp
 } from 'lucide-react';
 import { ErrorBoundary } from '../components/ErrorBoundary';
-import { sendDisputeChatMessage, resolveCustomDispute, uploadEvidenceToS3, analyzeEvidence, simulateMerchantResponse, translateToEnglish, transcribeAudio } from '../lib/api';
+import { sendDisputeChatMessage, resolveCustomDispute, uploadEvidenceToS3, analyzeEvidence, simulateMerchantResponse, transcribeAudio } from '../lib/api';
+import { translateToEnglish, translateFromEnglish, detectLanguage, SUPPORTED_LANGUAGES } from '../lib/sarvamClient';
 import { buildAgentContextWithMemory } from '../lib/agentContext';
 import { storeMemory } from '../lib/cogneeMemory';
 import { useDisputeStore } from '../store/disputeStore';
@@ -147,7 +148,7 @@ function LiveThoughtStream({ isResolving }) {
 
 export default function AIChatWorkspace({ useBedrock }) {
   // ── state ──────────────────────────────────────────────────────────────────
-  const { disputes, addDispute, approveDispute, escalateDispute } = useDisputeStore();
+  const { disputes, addDispute, approveDispute, escalateDispute, activePlatform } = useDisputeStore();
   const saved = loadHistory();
   const [messages, setMessages]   = useState(saved || [WELCOME_MSG]);
   const [attachments, setAttachments] = useState([]); // NO default attachment
@@ -169,6 +170,10 @@ export default function AIChatWorkspace({ useBedrock }) {
   const [showConfidenceExplain, setShowConfidenceExplain] = useState(false);
   const [merchantSimLoading, setMerchantSimLoading] = useState(false);
   const [merchantSimResult, setMerchantSimResult] = useState(null);
+
+  const [selectedLanguage, setSelectedLanguage] = useState('en-IN');
+  const [detectedLanguage, setDetectedLanguage] = useState('en-IN');
+  const [translatedVerdict, setTranslatedVerdict] = useState(null);
 
   // Dispute form fields
   const [formProduct, setFormProduct]     = useState('');
@@ -252,6 +257,17 @@ export default function AIChatWorkspace({ useBedrock }) {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isProcessing, verdict]);
 
+  // ── translation ────────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (verdict?.reasoning && detectedLanguage !== 'en-IN') {
+      const textToTranslate = Array.isArray(verdict.reasoning) ? verdict.reasoning.join('\n') : verdict.reasoning;
+      translateFromEnglish(textToTranslate, detectedLanguage)
+        .then(setTranslatedVerdict);
+    } else {
+      setTranslatedVerdict(null);
+    }
+  }, [verdict, detectedLanguage]);
+
   // ── handlers ──────────────────────────────────────────────────────────────
 
   const startRecording = async () => {
@@ -307,9 +323,11 @@ export default function AIChatWorkspace({ useBedrock }) {
     let finalContent = text;
     setIsProcessing(true);
 
-    if (text && /[^\x00-\x7F]/.test(text)) {
+    if (text) {
       try {
-        finalContent = await translateToEnglish(text);
+        const detected = selectedLanguage !== 'en-IN' ? selectedLanguage : await detectLanguage(text);
+        setDetectedLanguage(detected);
+        finalContent = await translateToEnglish(text, detected);
       } catch (err) {
         console.warn('Translation failed, using original text', err);
       }
@@ -413,16 +431,23 @@ export default function AIChatWorkspace({ useBedrock }) {
       const productName = details.product;
       const disputeAmount = details.amount;
 
+      const allAttachments = [
+        ...messages.flatMap(m => m.attachments || []),
+        ...attachments
+      ];
+
       await resolveCustomDispute({
         customer_name: 'Customer (You)',
         merchant_name: merchantName,
         product_name: productName,
         amount: disputeAmount,
-        customer_claim: context,
+        customer_claim: userClaimText,
+        customer_claim_context: context,
         merchant_claim: 'Fulfillment dispatched per standard catalog specification.',
-        proof_attachments: attachments,
+        proof_attachments: allAttachments,
         chat_log: messages.map(m => ({ from: m.sender === 'user' ? 'customer' : 'merchant', text: m.content })),
-        use_bedrock: useBedrock
+        use_bedrock: useBedrock,
+        platform: activePlatform
       }, (event) => {
         if (event.type === 'agent_complete' && event.output) {
           setAgentOutputs(prev => { const f = prev.filter(o => o.agent !== event.agent); return [...f, event.output]; });
@@ -529,17 +554,18 @@ export default function AIChatWorkspace({ useBedrock }) {
           id: tempId,
           name: file.name, type: file.type || 'image/jpeg',
           description: `Uploading to S3...`,
+          isAnalyzing: true,
           file,
         }]);
 
         // Upload to S3
         const { bucket, key, url } = await uploadEvidenceToS3(file, 'chat-case');
         
-        let labelsDesc = '';
+        let rekognitionLabels = [];
         try {
           const labels = await analyzeEvidence(bucket, key);
           if (labels && labels.length > 0) {
-            labelsDesc = ` \nAI detected: ${labels.join(', ')}`;
+            rekognitionLabels = labels;
           }
         } catch (rekErr) {
           console.warn('Rekognition analysis failed:', rekErr);
@@ -548,8 +574,10 @@ export default function AIChatWorkspace({ useBedrock }) {
         setAttachments(prev => prev.map(a => 
           a.id === tempId ? {
             ...a,
-            description: `s3://${bucket}/${key} (Verified)` + labelsDesc,
-            dataUrl: url // Use S3 URL
+            description: `s3://${bucket}/${key} (Verified)`,
+            dataUrl: url,
+            isAnalyzing: false,
+            rekognitionLabels
           } : a
         ));
       } catch (err) {
@@ -634,7 +662,7 @@ ${reasoningText}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 AI Recommendation only. Requires Paytm
 reviewer approval before any action.
-Powered by Nyaya AI — Paytm Hackathon 2026
+Powered by Nyaya AI — 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
   };
 
@@ -728,7 +756,7 @@ Powered by Nyaya AI — Paytm Hackathon 2026
     if (activeAgentTab === 'evidence') return renderBullets(evidenceOut?.content?.key_facts, ['Run resolution to see the evidence analysis.']);
     if (activeAgentTab === 'merchant') return renderBullets(merchantOut?.content?.supporting_points, ['Run resolution to see the merchant\'s arguments.']);
     if (activeAgentTab === 'customer') return renderBullets(customerOut?.content?.supporting_points, ['Run resolution to see the customer advocacy analysis.']);
-    return renderBullets(verdict?.reasoning, ['Run resolution to see the judge\'s verdict and reasoning.']);
+    return renderBullets(translatedVerdict || verdict?.reasoning, ['Run resolution to see the judge\'s verdict and reasoning.']);
   };
 
   // ── verdict display values ─────────────────────────────────────────────────
@@ -850,9 +878,12 @@ Powered by Nyaya AI — Paytm Hackathon 2026
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                     {attachments.map(att => (
                       <div key={att.id} style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#F3F4F6', borderRadius: 6, padding: '3px 8px', fontSize: 11, color: '#374151' }}>
-                        <ImageIcon size={11} color="#F97316" />
-                        <span style={{ maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: 'monospace' }}>{att.name}</span>
-                        <button onClick={() => setAttachments(p => p.filter(a => a.id !== att.id))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#9CA3AF', padding: 0, display: 'flex' }}>
+                        {att.isAnalyzing ? <RotateCw size={11} className="animate-spin" color="#6B7280" /> : <ImageIcon size={11} color="#F97316" />}
+                        <span style={{ maxWidth: 140, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: 'monospace' }}>{att.isAnalyzing ? 'Analyzing image...' : att.name}</span>
+                        {att.rekognitionLabels && att.rekognitionLabels.slice(0, 3).map((lbl, i) => (
+                          <span key={i} style={{ background: '#E0E7FF', color: '#4338CA', padding: '1px 6px', borderRadius: 12, fontSize: 9, fontWeight: 600 }}>[{lbl}]</span>
+                        ))}
+                        <button type="button" onClick={() => setAttachments(p => p.filter(a => a.id !== att.id))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#9CA3AF', padding: 0, display: 'flex' }}>
                           <X size={10} />
                         </button>
                       </div>
@@ -920,7 +951,12 @@ Powered by Nyaya AI — Paytm Hackathon 2026
                     <div style={{ marginTop: 10, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.25)' }}>
                       <div style={{ fontSize: 11, fontWeight: 600, marginBottom: 4, opacity: 0.8 }}>📎 Attached:</div>
                       {msg.attachments.map((att, i) => (
-                        <div key={i} style={{ fontSize: 11, opacity: 0.85, fontFamily: 'monospace' }}>{att.name}</div>
+                        <div key={i} style={{ fontSize: 11, opacity: 0.85, fontFamily: 'monospace', display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 4, marginBottom: 4 }}>
+                          <span>{att.name}</span>
+                          {att.rekognitionLabels && att.rekognitionLabels.map((lbl, idx) => (
+                            <span key={idx} style={{ background: 'rgba(255,255,255,0.2)', padding: '1px 6px', borderRadius: 12, fontSize: 9, fontWeight: 600 }}>[{lbl}]</span>
+                          ))}
+                        </div>
                       ))}
                     </div>
                   )}
@@ -1189,9 +1225,11 @@ Powered by Nyaya AI — Paytm Hackathon 2026
             {/* Footer */}
             {verdict && (
               <div style={{ borderTop: '1px solid #F3F4F6', padding: '12px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#FAFAFA' }}>
-                {verdict.action_taken === 'pending_human_approval' ? (
+                {['pending_human_approval', 'escalated'].includes(verdict.action_taken) ? (
                   <>
-                    <span style={{ fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 20, background: 'rgba(245,158,11,0.12)', color: '#92400E' }}>Pending Human Approval</span>
+                    <span style={{ fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 20, background: 'rgba(245,158,11,0.12)', color: '#92400E' }}>
+                      {verdict.action_taken === 'escalated' ? 'Escalated (Action Required)' : 'Pending Human Approval'}
+                    </span>
                     <div style={{ display: 'flex', gap: 8 }}>
                       <button onClick={() => { approveDispute(verdict.dispute_id); setVerdict({...verdict, action_taken: 'approved_by_human'}) }} style={{ fontSize: 12, color: 'white', border: 'none', borderRadius: 6, padding: '6px 12px', background: '#10B981', cursor: 'pointer', fontWeight: 600 }}>
                         ✓ Approve
@@ -1245,9 +1283,12 @@ Powered by Nyaya AI — Paytm Hackathon 2026
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
               {attachments.map(att => (
                 <div key={att.id} style={{ display: 'flex', alignItems: 'center', gap: 5, background: '#E5E7EB', border: '1px solid #D1D5DB', borderRadius: 6, padding: '3px 8px', fontSize: 11, color: '#374151' }}>
-                  <ImageIcon size={11} color="#F97316" />
-                  <span style={{ maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: 'monospace' }}>{att.name}</span>
-                  <button onClick={() => setAttachments(p => p.filter(a => a.id !== att.id))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#6B7280', padding: 0, display: 'flex' }}>
+                  {att.isAnalyzing ? <RotateCw size={11} className="animate-spin" color="#6B7280" /> : <ImageIcon size={11} color="#F97316" />}
+                  <span style={{ maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: 'monospace' }}>{att.isAnalyzing ? 'Analyzing image...' : att.name}</span>
+                  {att.rekognitionLabels && att.rekognitionLabels.slice(0, 3).map((lbl, i) => (
+                    <span key={i} style={{ background: '#E0E7FF', color: '#4338CA', padding: '1px 6px', borderRadius: 12, fontSize: 9, fontWeight: 600 }}>[{lbl}]</span>
+                  ))}
+                  <button type="button" onClick={() => setAttachments(p => p.filter(a => a.id !== att.id))} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#6B7280', padding: 0, display: 'flex' }}>
                     <X size={10} />
                   </button>
                 </div>
@@ -1269,6 +1310,16 @@ Powered by Nyaya AI — Paytm Hackathon 2026
               <button type="button" onClick={() => setDisputeFormOpen(o => !o)} style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#9CA3AF', display: 'flex', padding: 2, flexShrink: 0 }} title="Open dispute form">
                 <FolderOpen size={18} />
               </button>
+              <select
+                value={selectedLanguage}
+                onChange={(e) => setSelectedLanguage(e.target.value)}
+                style={{ border: 'none', background: 'transparent', color: '#6B7280', fontSize: 13, outline: 'none', cursor: 'pointer' }}
+                title="Select Language"
+              >
+                {SUPPORTED_LANGUAGES.map(lang => (
+                  <option key={lang.code} value={lang.code}>{lang.flag} {lang.name}</option>
+                ))}
+              </select>
               <GooeyInput
                 value={inputText}
                 onValueChange={setInputText}
@@ -1307,7 +1358,7 @@ Powered by Nyaya AI — Paytm Hackathon 2026
           </form>
 
           <div style={{ fontSize: 10, color: '#D1D5DB', textAlign: 'center', marginTop: 6 }}>
-            Nyaya AI Autonomous Dispute Resolution Engine • Paytm Build for India Hackathon Track 3
+            Nyaya AI Autonomous Dispute Resolution Engine • 
           </div>
         </div>
       </div>

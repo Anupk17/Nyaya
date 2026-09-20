@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Search, Bell } from 'lucide-react';
 import { GooeyInput } from '@/components/ui/gooey-input';
 import { runMonitoringChecks } from '../lib/proactiveMonitor';
+import { PLATFORM_CONFIGS } from '../config/platformConfig';
 import { useDisputeStore } from '../store/disputeStore';
-
 export default function TopHeader({ isHistoryOpen, setIsHistoryOpen, useBedrock, setUseBedrock }) {
   const navigate = useNavigate();
-  const { disputes } = useDisputeStore();
+  const { disputes, activePlatform, setActivePlatform } = useDisputeStore();
   const [alerts, setAlerts] = useState([]);
   const [newAlertCount, setNewAlertCount] = useState(0);
   const [showAlertPanel, setShowAlertPanel] = useState(false);
@@ -72,24 +72,51 @@ export default function TopHeader({ isHistoryOpen, setIsHistoryOpen, useBedrock,
             </div>
           </div>
 
-          {/* LLM Status (Removed AWS Bedrock) */}
-          <div style={{ display: 'flex', background: '#F3F4F6', borderRadius: 8, padding: 4 }}>
-            <div
-              style={{
-                padding: '6px 12px',
-                borderRadius: 6,
-                border: 'none',
-                fontSize: 12,
-                fontWeight: 500,
-                background: '#FFFFFF',
-                color: '#111827',
-                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 6
-              }}
-            >
-              🔴 Groq Ultra-Fast (Active)
+          <div style={{ display: 'flex', gap: 12 }}>
+            {/* Platform Selector */}
+            <div style={{ display: 'flex', background: '#F3F4F6', borderRadius: 8, padding: 4 }}>
+              <select
+                value={activePlatform}
+                onChange={(e) => setActivePlatform(e.target.value)}
+                style={{
+                  padding: '6px 12px',
+                  borderRadius: 6,
+                  border: 'none',
+                  fontSize: 12,
+                  fontWeight: 500,
+                  background: '#FFFFFF',
+                  color: '#111827',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  cursor: 'pointer'
+                }}
+              >
+                {Object.entries(PLATFORM_CONFIGS).map(([key, config]) => (
+                  <option key={key} value={key}>
+                    {config.name} Platform
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* LLM Status (Removed AWS Bedrock) */}
+            <div style={{ display: 'flex', background: '#F3F4F6', borderRadius: 8, padding: 4 }}>
+              <div
+                style={{
+                  padding: '6px 12px',
+                  borderRadius: 6,
+                  border: 'none',
+                  fontSize: 12,
+                  fontWeight: 500,
+                  background: '#FFFFFF',
+                  color: '#111827',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 6
+                }}
+              >
+                🔴 Groq Ultra-Fast (Active)
+              </div>
             </div>
           </div>
         </div>

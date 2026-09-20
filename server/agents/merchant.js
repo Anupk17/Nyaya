@@ -1,8 +1,10 @@
 const Groq = require('groq-sdk');
 const { bedrockClient } = require('../lib/aws');
 const { InvokeModelCommand } = require('@aws-sdk/client-bedrock-runtime');
+const { PLATFORM_CONFIGS } = require('../config/platformConfig');
 
-const SYSTEM_PROMPT = `You represent the MERCHANT in this dispute.
+const getSystemPrompt = (config) => `You represent the MERCHANT in this dispute for ${config.name}.
+Apply the ${config.name} Standard Merchant Service Level Agreements and policies.
 Given the evidence summary and the merchant's original claim, make the strongest honest case for the merchant's position.
 Do not fabricate evidence that wasn't provided.
 Acknowledge weaknesses in the merchant's position if the evidence clearly contradicts them — your credibility with the Judge Agent depends on not overreaching.
@@ -16,6 +18,10 @@ Return ONLY valid JSON with no preamble or explanation:
 
 
 async function run(evidenceSummary, merchantClaim, disputeId, options = {}) {
+  const platform = options.platform || 'paytm';
+  const config = PLATFORM_CONFIGS[platform] || PLATFORM_CONFIGS.paytm;
+  const SYSTEM_PROMPT = getSystemPrompt(config);
+
   const userMessage = `EVIDENCE SUMMARY:\n${JSON.stringify(evidenceSummary, null, 2)}\n\nMERCHANT'S ORIGINAL CLAIM:\n${merchantClaim}\n\nPresent the strongest honest case for the merchant.`;
 
   if (options.useBedrock) {

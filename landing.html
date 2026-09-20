@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyaya - AI Dispute Resolution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0A0A0A;
+            --graphite: #1C1C1E;
+            --slate: #3D3D3F;
+            --smoke: #F2F2F0;
+            --white: #FFFFFF;
+            --signal: #E8732A;
+            --signal-dim: #F5956A;
+            --verified: #22C55E;
+            --flagged: #EF4444;
+            --amber: #F59E0B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--ink);
+            background-color: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: var(--white);
+            z-index: 100;
+            transition: border-bottom 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        nav.scrolled {
+            border-bottom: 1px solid #E5E5E3;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+        .nav-left .icon {
+            color: var(--signal);
+            font-size: 20px;
+        }
+        .nav-center {
+            display: flex;
+            gap: 32px;
+        }
+        .nav-center a {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 14px;
+            font-weight: 450;
+            transition: color 0.2s ease;
+        }
+        .nav-center a:hover {
+            color: var(--ink);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-right .sign-in {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 14px;
+        }
+        .nav-right .start-free {
+            background: var(--ink);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+        .nav-right .start-free:hover {
+            background: #2C2C2E;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--ink);
+            cursor: pointer;
+        }
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid #E5E5E3;
+            flex-direction: column;
+            padding: 16px 24px;
+            gap: 16px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .mobile-nav.open {
+            display: flex;
+        }
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 140px;
+            padding-bottom: 100px;
+            background: var(--white);
+        }
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            color: #15803D;
+            font-size: 12px;
+            font-weight: 500;
+            border-radius: 20px;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #15803D;
+            border-radius: 50%;
+        }
+        
+        .hero-headline {
+            font-size: 80px;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .hero-subheadline {
+            font-size: 20px;
+            color: var(--slate);
+            max-width: 440px;
+        }
+        .hero-cta {
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+        }
+        .btn-primary {
+            background: var(--signal);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            font-family: inherit;
+        }
+        .btn-primary:hover {
+            background: var(--signal-dim);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1px solid #D1D1CF;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            font-family: inherit;
+        }
+        .btn-secondary:hover {
+            background: var(--smoke);
+        }
+        
+        .social-proof {
+            margin-top: 48px;
+        }
+        .social-proof p {
+            font-size: 12px;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+        .logos {
+            display: flex;
+            gap: 24px;
+        }
+        .logo-placeholder {
+            width: 80px;
+            height: 24px;
+            background: #E5E5E3;
+            border-radius: 12px;
+        }
+
+        /* Verdict Card */
+        .verdict-card {
+            background: var(--white);
+            border: 1px solid #E5E5E3;
+            border-radius: 16px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+            max-width: 480px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .vc-header {
+            background: var(--graphite);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .vc-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--white);
+        }
+        .vc-status {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--slate);
+        }
+        .vc-dots {
+            display: flex;
+            gap: 4px;
+        }
+        .vc-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--slate);
+        }
+        .vc-dot.pulse {
+            background: var(--signal);
+            animation: pulse 1s infinite alternate;
+        }
+        .vc-dot.pulse:nth-child(2) { animation-delay: 0.2s; }
+        .vc-dot.pulse:nth-child(3) { animation-delay: 0.4s; }
+        
+        .vc-status-text {
+            color: var(--white);
+            font-size: 12px;
+        }
+        .vc-status-complete {
+            color: var(--verified);
+            display: none;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .vc-body {
+            padding: 24px;
+            position: relative;
+            min-height: 380px;
+        }
+        
+        .vc-phase-1, .vc-phase-2 {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .vc-phase-1 { opacity: 1; }
+        .vc-phase-2 { opacity: 0; pointer-events: none; }
+
+        .vc-p1-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 20px;
+        }
+        .vc-agent-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--slate);
+        }
+        .vc-shimmer { color: #D1D1CF; letter-spacing: 1px; }
+        .vc-shimmer-fill { color: var(--ink); }
+
+        .vc-priority {
+            display: inline-block;
+            background: #FFF7ED;
+            color: var(--signal);
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 4px;
+            padding: 4px 10px;
+            margin-bottom: 16px;
+        }
+        
+        .vc-verdict-headline {
+            font-size: 22px;
+            font-family: 'DM Serif Display', serif;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+        
+        .vc-amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--signal);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .vc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+        .vc-cell {
+            background: #F8F9FA;
+            border-radius: 8px;
+            padding: 10px 12px;
+        }
+        .vc-cell-name {
+            font-size: 11px;
+            color: var(--slate);
+            margin-bottom: 4px;
+        }
+        .vc-cell-vote {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .vote-green { color: var(--verified); }
+        .vote-red { color: var(--flagged); }
+        
+        .vc-confidence {
+            margin-top: 14px;
+        }
+        .vc-conf-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .vc-conf-bar {
+            width: 100%;
+            height: 6px;
+            background: #F3F4F6;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .vc-conf-fill {
+            height: 100%;
+            background: var(--verified);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .vc-actions {
+            margin-top: 16px;
+            border-top: 1px solid #F3F4F6;
+            padding-top: 16px;
+        }
+        .vc-btn-approve {
+            width: 100%;
+            background: var(--verified);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 8px;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+        .vc-btn-approve:hover { opacity: 0.9; }
+        
+        .vc-btn-override {
+            width: 100%;
+            background: transparent;
+            color: var(--slate);
+            border: 1px solid transparent;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .vc-btn-override:hover { background: #F8F9FA; }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--smoke);
+            padding: 120px 0;
+        }
+        .eyebrow {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+        .section-headline {
+            font-size: 48px;
+            color: var(--ink);
+            line-height: 1.1;
+            margin-bottom: 64px;
+            max-width: 800px;
+        }
+        .problem-stats {
+            display: flex;
+            gap: 40px;
+        }
+        .problem-stat { flex: 1; }
+        .problem-stat:not(:last-child) { position: relative; }
+        .problem-stat:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background: #D1D1CF;
+        }
+        .p-number {
+            font-size: 72px;
+            font-family: 'DM Serif Display', serif;
+            color: var(--ink);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .p-label {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+        .p-desc {
+            font-size: 14px;
+            color: var(--slate);
+            max-width: 240px;
+        }
+        
+        .section-separator {
+            height: 1px;
+            background: #E5E5E3;
+            width: 100%;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            background: var(--white);
+            padding: 120px 0;
+        }
+        .hiw-subheadline {
+            font-size: 20px;
+            color: var(--slate);
+            max-width: 600px;
+            margin-top: 24px;
+            margin-bottom: 80px;
+        }
+        .hiw-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+        .hiw-row:last-child { margin-bottom: 0; }
+        
+        .hiw-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+        .hiw-agent-icon {
+            width: 32px;
+            height: 32px;
+            background: #FFF7ED;
+            color: var(--signal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .hiw-model-label {
+            font-size: 12px;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+        .hiw-body {
+            font-size: 16px;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+        .hiw-pills {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hiw-pill {
+            background: var(--smoke);
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            color: var(--slate);
+            font-weight: 500;
+        }
+        
+        .hiw-visual-code {
+            background: var(--graphite);
+            padding: 24px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+        .code-key { color: var(--signal-dim); }
+        .code-val-num { color: #A78BFA; }
+        .code-val-str { color: #34D399; }
+        
+        .hiw-advocate-cards {
+            position: relative;
+            height: 240px;
+        }
+        .advocate-card {
+            position: absolute;
+            width: 280px;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .adv-merchant {
+            background: var(--graphite);
+            color: var(--white);
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .adv-customer {
+            background: var(--smoke);
+            color: var(--ink);
+            top: 60px;
+            left: 80px;
+            z-index: 1;
+            border: 1px solid #E5E5E3;
+        }
+        .adv-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .adv-text {
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* Stats Ticker */
+        .stats-section {
+            background: var(--graphite);
+            padding: 60px 0;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+        .stat-item {
+            flex: 1;
+            padding: 0 24px;
+        }
+        .stat-item:not(:last-child) {
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-item:first-child { padding-left: 0; }
+        .stat-item:last-child { padding-right: 0; }
+        
+        .stat-num {
+            font-size: 56px;
+            font-family: 'DM Serif Display', serif;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            max-width: 140px;
+        }
+
+        /* Features */
+        .features {
+            background: var(--white);
+            padding: 120px 0;
+        }
+        .feat-layout {
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+        }
+        .feat-left {
+            width: 60%;
+            background: var(--smoke);
+            border-radius: 16px;
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+        }
+        .feat-right {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .feat-title {
+            font-size: 24px;
+            font-family: 'DM Serif Display', serif;
+            margin-bottom: 32px;
+        }
+        .feat-diagram {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid #E5E5E3;
+        }
+        .diagram-node {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 12px;
+            border: 1px solid #D1D1CF;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .diagram-arrow {
+            text-align: center;
+            color: var(--slate);
+            margin-bottom: 12px;
+        }
+        .diagram-branch {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .d-yes, .d-no {
+            flex: 1;
+            font-size: 12px;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .d-yes {
+            background: #FFF7ED;
+            color: var(--signal);
+            border: 1px solid #FED7AA;
+        }
+        .d-no {
+            background: #F3F4F6;
+            color: var(--slate);
+            border: 1px solid #E5E7EB;
+        }
+        
+        .feat-body {
+            font-size: 15px;
+            color: var(--slate);
+            margin-top: auto;
+        }
+        
+        .feat-card {
+            border-radius: 12px;
+            padding: 28px;
+            flex: 1;
+        }
+        .feat-card.dark {
+            background: var(--ink);
+            color: var(--white);
+        }
+        .feat-card.light {
+            background: var(--smoke);
+            color: var(--ink);
+        }
+        .fc-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .fc-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Human Approval */
+        .approval {
+            background: var(--smoke);
+            padding: 120px 0;
+        }
+        .approval-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .approval-body {
+            font-size: 16px;
+            color: var(--slate);
+            margin-bottom: 40px;
+        }
+        .trust-marker {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+        .trust-check {
+            color: var(--verified);
+            font-weight: bold;
+        }
+        
+        .approval-card-wrap {
+            background: var(--white);
+            border: 1px solid #E5E5E3;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.04);
+        }
+        .ac-warning {
+            background: #FEF3C7;
+            color: #92400E;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .ac-footer-note {
+            font-size: 12px;
+            font-style: italic;
+            color: var(--slate);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: var(--white);
+            padding: 120px 0;
+        }
+        .pricing-grid {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .tier {
+            flex: 1;
+            border-radius: 12px;
+            padding: 36px;
+            position: relative;
+        }
+        .tier-basic {
+            background: var(--white);
+            border: 1px solid #E5E5E3;
+        }
+        .tier-pro {
+            background: var(--white);
+            border: 2px solid var(--signal);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 48px rgba(232,115,42,0.15);
+        }
+        .tier-ent {
+            background: var(--smoke);
+            border: 1px solid #E5E5E3;
+        }
+        
+        .most-chosen {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--signal);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .t-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .t-price {
+            font-size: 36px;
+            font-family: 'DM Serif Display', serif;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .t-period {
+            font-size: 14px;
+            color: var(--slate);
+            margin-bottom: 16px;
+        }
+        .t-desc {
+            font-size: 14px;
+            color: var(--slate);
+            margin-bottom: 32px;
+            min-height: 42px;
+        }
+        .t-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        .t-features li {
+            font-size: 14px;
+            color: var(--slate);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        .t-features li::before {
+            content: '✓';
+            color: var(--signal);
+            font-weight: bold;
+        }
+        
+        .t-btn-ghost {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid #D1D1CF;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .t-btn-ghost:hover { background: var(--smoke); }
+        
+        .t-btn-filled {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--signal);
+            color: var(--white);
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .t-btn-filled:hover { background: var(--signal-dim); }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--ink);
+            padding: 120px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        .fc-headline {
+            font-size: 64px;
+            font-family: 'DM Serif Display', serif;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        .fc-sub {
+            font-size: 20px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .fc-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        .btn-fc-pri {
+            background: var(--signal);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-fc-pri:hover { background: var(--signal-dim); }
+        
+        .btn-fc-sec {
+            background: transparent;
+            color: rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .btn-fc-sec:hover {
+            color: var(--white);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 48px 0;
+            color: var(--white);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .f-logo {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .f-logo .icon { color: var(--signal); }
+        .f-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 12px;
+            max-width: 200px;
+        }
+        .f-col-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .f-links { list-style: none; }
+        .f-links li { margin-bottom: 12px; }
+        .f-links a {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .f-links a:hover { color: var(--white); }
+        .f-bottom {
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-center, .nav-right .desktop-only { display: none; }
+            .mobile-menu-btn { display: block; }
+            
+            .hero { padding-top: 100px; padding-bottom: 60px; }
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-headline { font-size: 56px; }
+            .hero-cta { flex-direction: column; }
+            .btn-primary, .btn-secondary { text-align: center; }
+            
+            .problem-stats { flex-direction: column; gap: 40px; }
+            .problem-stat:not(:last-child)::after { display: none; }
+            
+            .hiw-row { grid-template-columns: 1fr; gap: 40px; }
+            .hiw-row > div:first-child { order: -1; }
+            
+            .stats-grid { 
+                display: grid; 
+                grid-template-columns: 1fr 1fr; 
+                gap: 32px; 
+            }
+            .stat-item { padding: 0; }
+            .stat-item:not(:last-child) { border-right: none; }
+            
+            .feat-layout { flex-direction: column; }
+            .feat-left, .feat-right { width: 100%; }
+            .hiw-advocate-cards { max-width: 100%; overflow: hidden; }
+            .advocate-card { position: relative; width: 100%; margin-bottom: 16px; top: 0 !important; left: 0 !important; }
+            
+            .approval-layout { grid-template-columns: 1fr; gap: 40px; }
+            
+            .pricing-grid { flex-direction: column; }
+            .tier-pro { transform: none; order: -1; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            
+            .fc-headline { font-size: 40px; }
+            .fc-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav">
+        <div class="container nav-inner">
+            <div class="nav-left">
+                <span class="icon">⚖</span> Nyaya
+            </div>
+            <div class="nav-center">
+                <a href="#how">How it works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#training">Training Studio</a>
+                <a href="#docs">Docs</a>
+            </div>
+            <div class="nav-right">
+                <a href="#login" class="sign-in desktop-only">Sign in</a>
+                <a href="#signup" class="start-free desktop-only">Start free</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">☰</button>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#how">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#training">Training Studio</a>
+            <a href="#docs">Docs</a>
+            <a href="#login">Sign in</a>
+            <a href="#signup" style="color: var(--signal)">Start free</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-left">
+                <div class="status-badge">
+                    <div class="status-dot"></div>
+                    Live · 4 agents active
+                </div>
+                <h1 class="hero-headline" id="hero-headline">
+                    Disputes resolved.<br>
+                    Not just reviewed.
+                </h1>
+                <p class="hero-subheadline">
+                    Nyaya's four AI agents investigate every dispute, argue both sides, and deliver a reasoned verdict in under 10 seconds. Your team approves — not investigates.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-primary">See it resolve a dispute</button>
+                    <button class="btn-secondary">How it works</button>
+                </div>
+                <div class="social-proof">
+                    <p>Trusted by dispute teams at</p>
+                    <div class="logos">
+                        <div class="logo-placeholder"></div>
+                        <div class="logo-placeholder"></div>
+                        <div class="logo-placeholder"></div>
+                        <div class="logo-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="verdict-card">
+                    <div class="vc-header">
+                        <div class="vc-title">⚖ Nyaya Verdict</div>
+                        <div class="vc-status">
+                            <div class="vc-dots" id="vc-dots">
+                                <div class="vc-dot pulse"></div>
+                                <div class="vc-dot pulse"></div>
+                                <div class="vc-dot pulse"></div>
+                            </div>
+                            <span class="vc-status-text" id="vc-status-text">analyzing</span>
+                            <span class="vc-status-complete" id="vc-status-complete">Complete</span>
+                        </div>
+                    </div>
+                    <div class="vc-body">
+                        <!-- Phase 1 -->
+                        <div class="vc-phase-1" id="vc-phase-1">
+                            <div class="vc-p1-title">4 agents analyzing...</div>
+                            
+                            <div class="vc-agent-row">
+                                <span>🔍 Evidence Agent</span>
+                                <span class="vc-shimmer"><span class="vc-shimmer-fill">████████</span>░░</span>
+                            </div>
+                            <div class="vc-agent-row">
+                                <span>🏪 Merchant Agent</span>
+                                <span class="vc-shimmer"><span class="vc-shimmer-fill">████</span>░░░░░░</span>
+                            </div>
+                            <div class="vc-agent-row">
+                                <span>👤 Customer Agent</span>
+                                <span class="vc-shimmer"><span class="vc-shimmer-fill">██████</span>░░░░</span>
+                            </div>
+                            <div class="vc-agent-row">
+                                <span>⚖ Judge Agent</span>
+                                <span class="vc-shimmer">░░░░░░░░░░</span>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="vc-phase-2" id="vc-phase-2">
+                            <div class="vc-priority">⚡ High Priority — Fast-track review</div>
+                            <h2 class="vc-verdict-headline" id="vc-headline">AI recommends full refund</h2>
+                            <div class="vc-amount" id="vc-amount">₹2,499 to buyer</div>
+                            
+                            <div class="vc-grid">
+                                <div class="vc-cell">
+                                    <div class="vc-cell-name">Evidence Agent</div>
+                                    <div class="vc-cell-vote vote-green" id="vc-ev-vote">✓ Supports Refund</div>
+                                </div>
+                                <div class="vc-cell">
+                                    <div class="vc-cell-name">Merchant Agent</div>
+                                    <div class="vc-cell-vote vote-red" id="vc-me-vote">✗ Disputes Claim</div>
+                                </div>
+                                <div class="vc-cell">
+                                    <div class="vc-cell-name">Customer Agent</div>
+                                    <div class="vc-cell-vote vote-green" id="vc-cu-vote">✓ Strong Case</div>
+                                </div>
+                                <div class="vc-cell">
+                                    <div class="vc-cell-name">Judge Agent</div>
+                                    <div class="vc-cell-vote vote-green" id="vc-ju-vote">✓ Full Refund</div>
+                                </div>
+                            </div>
+                            
+                            <div class="vc-confidence">
+                                <div class="vc-conf-header">
+                                    <span>Confidence</span>
+                                    <span id="vc-conf-val">89%</span>
+                                </div>
+                                <div class="vc-conf-bar">
+                                    <div class="vc-conf-fill" id="vc-conf-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="vc-actions">
+                                <button class="vc-btn-approve" id="vc-btn-approve">✓ Approve — Withhold from payout</button>
+                                <button class="vc-btn-override">✗ Override</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section class="problem-section">
+        <div class="container">
+            <div class="eyebrow">The problem with disputes today</div>
+            <h2 class="section-headline">
+                Every dispute costs you time,<br>
+                money, and a customer.
+            </h2>
+            <div class="problem-stats">
+                <div class="problem-stat">
+                    <div class="p-number">48–72</div>
+                    <div class="p-label">hours per dispute, on average</div>
+                    <div class="p-desc">A support agent chases logs, pings the merchant, then decides. By hand. For every case.</div>
+                </div>
+                <div class="problem-stat">
+                    <div class="p-number">₹1,000+</div>
+                    <div class="p-label">cost per resolved ticket</div>
+                    <div class="p-desc">At scale, manual dispute handling is one of the largest hidden costs in fintech operations.</div>
+                </div>
+                <div class="problem-stat">
+                    <div class="p-number">0</div>
+                    <div class="p-label">visibility for customers</div>
+                    <div class="p-desc">"Under review" is all they see. No reasoning, no timeline, no confidence they'll be heard.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <h2 class="section-headline" style="margin-bottom:0">
+                Four agents. One verdict.<br>
+                Under ten seconds.
+            </h2>
+            <div class="hiw-subheadline">
+                Not a chatbot. A panel of specialised AI agents that investigate, argue, and judge — the way a good arbitration should work.
+            </div>
+
+            <!-- ROW 1 -->
+            <div class="hiw-row">
+                <div class="hiw-content">
+                    <h3><div class="hiw-agent-icon">🔍</div> Evidence Agent</h3>
+                    <div class="hiw-model-label">Groq Llama3 8B</div>
+                    <div class="hiw-body">
+                        Reads the dispute statement and weighs every fact objectively. OTP status, photo validity, invoice match, filing time. No bias. Just evidence.
+                    </div>
+                    <div class="hiw-pills">
+                        <span class="hiw-pill">Evidence: 84/100</span>
+                        <span class="hiw-pill">OTP: Not found</span>
+                        <span class="hiw-pill">Photo: Valid</span>
+                    </div>
+                </div>
+                <div class="hiw-visual-code">
+{
+  <span class="code-key">"evidence_strength"</span>: <span class="code-val-num">84</span>,
+  <span class="code-key">"otp_status"</span>: <span class="code-val-str">"NOT_FOUND"</span>,
+  <span class="code-key">"photo_validity"</span>: <span class="code-val-str">"VALID"</span>,
+  <span class="code-key">"verdict_suggestion"</span>: <span class="code-val-str">"REFUND_LIKELY"</span>
+}
+                </div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="hiw-row">
+                <div class="hiw-advocate-cards">
+                    <div class="advocate-card adv-merchant">
+                        <div class="adv-title">🏪 Merchant Advocate</div>
+                        <div class="adv-text">OTP delivery log absent — merchant position is weak</div>
+                    </div>
+                    <div class="advocate-card adv-customer">
+                        <div class="adv-title">👤 Customer Advocate</div>
+                        <div class="adv-text">Filed within 3 hours.<br>RBI Section 10.4 applies.</div>
+                    </div>
+                </div>
+                <div class="hiw-content">
+                    <h3 style="font-size:24px; font-family:'DM Serif Display',serif; margin-bottom:16px; display:block">The adversarial layer</h3>
+                    <div class="hiw-body">
+                        Each side gets a dedicated advocate. The merchant's best case. The customer's best case. Built by AI, weighed by the Judge. No human has to chase either party.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 3 -->
+            <div class="hiw-row">
+                <div class="hiw-content">
+                    <h3><div class="hiw-agent-icon">⚖</div> Judge Agent</h3>
+                    <div class="hiw-model-label">Llama3 70B</div>
+                    <div class="hiw-body">
+                        The most powerful model in the chain. It receives all three agent outputs, applies RBI Consumer Protection Guidelines, and issues a verdict with a confidence score and full written reasoning.
+                        <br><br>
+                        Below 65% confidence? It always escalates. The system knows what it doesn't know.
+                    </div>
+                </div>
+                <div class="verdict-card" style="box-shadow: 0 12px 32px rgba(0,0,0,0.06);">
+                    <div class="vc-header">
+                        <div class="vc-title">⚖ Nyaya Verdict</div>
+                        <div class="vc-status">
+                            <span class="vc-status-complete" style="display:block; color:var(--verified)">Complete</span>
+                        </div>
+                    </div>
+                    <div class="vc-body" style="min-height: auto;">
+                        <div class="vc-priority">⚡ High Priority — Fast-track review</div>
+                        <h2 class="vc-verdict-headline">AI recommends full refund</h2>
+                        <div class="vc-amount">₹2,499 to buyer</div>
+                        
+                        <div class="vc-grid">
+                            <div class="vc-cell">
+                                <div class="vc-cell-name">Evidence Agent</div>
+                                <div class="vc-cell-vote vote-green">✓ Supports Refund</div>
+                            </div>
+                            <div class="vc-cell">
+                                <div class="vc-cell-name">Merchant Agent</div>
+                                <div class="vc-cell-vote vote-red">✗ Disputes Claim</div>
+                            </div>
+                            <div class="vc-cell">
+                                <div class="vc-cell-name">Customer Agent</div>
+                                <div class="vc-cell-vote vote-green">✓ Strong Case</div>
+                            </div>
+                            <div class="vc-cell">
+                                <div class="vc-cell-name">Judge Agent</div>
+                                <div class="vc-cell-vote vote-green">✓ Full Refund</div>
+                            </div>
+                        </div>
+                        
+                        <div class="vc-confidence">
+                            <div class="vc-conf-header">
+                                <span>Confidence</span>
+                                <span>89%</span>
+                            </div>
+                            <div class="vc-conf-bar">
+                                <div class="vc-conf-fill" style="width: 89%; background:var(--verified)"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="vc-actions">
+                            <button class="vc-btn-approve" style="background:var(--verified)">✓ Approve — Withhold from payout</button>
+                            <button class="vc-btn-override">✗ Override</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="stats-section" id="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="8.4" data-suffix="s">0</span></div>
+                <div class="stat-label">Average resolution</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="98" data-suffix="%">0</span></div>
+                <div class="stat-label">Cost reduction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="0">0</span></div>
+                <div class="stat-label">Autonomous money moves</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+                <div class="stat-label">Cases with full reasoning</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-headline">Built for trust, not just speed.</h2>
+            
+            <div class="feat-layout">
+                <div class="feat-left">
+                    <h3 class="feat-title">Escrow-aware refund logic</h3>
+                    <div class="feat-diagram">
+                        <div class="diagram-node">Customer pays ₹2,499</div>
+                        <div class="diagram-arrow">↓</div>
+                        <div class="diagram-node">Nodal Account — ESCROW</div>
+                        <div class="diagram-arrow">↓</div>
+                        <div style="font-size:13px; text-align:center; color:var(--slate)">Dispute filed within 48hrs?</div>
+                        <div class="diagram-branch">
+                            <div class="d-yes">YES → Withhold payout → Refund</div>
+                            <div class="d-no">NO → Chargeback process</div>
+                        </div>
+                    </div>
+                    <div class="feat-body">
+                        Nyaya knows whether funds are still in escrow or already settled — and recommends the legally correct refund path. Not every resolution team knows this. Nyaya always does.
+                    </div>
+                </div>
+                
+                <div class="feat-right">
+                    <div class="feat-card dark">
+                        <div class="fc-title">🧠 Cognee Memory</div>
+                        <div class="fc-desc">Every resolved case is remembered. Repeat claimants are flagged. Merchant patterns surface automatically.</div>
+                    </div>
+                    <div class="feat-card light">
+                        <div class="fc-title">🔔 Proactive Monitoring</div>
+                        <div class="fc-desc">Nyaya watches the queue silently. Aging cases, fraud patterns, high-value disputes — flagged before you ask.</div>
+                    </div>
+                    <div class="feat-card light">
+                        <div class="fc-title">🌐 8 Indian Languages</div>
+                        <div class="fc-desc">Customers file in Hindi, Tamil, Telugu, Kannada, Bengali, Marathi, Gujarati. Agents process in English. Verdicts return in the customer's language.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section class="approval">
+        <div class="container approval-layout">
+            <div class="approval-left">
+                <h2 class="section-headline" style="margin-bottom:24px">
+                    AI recommends.<br>Humans decide.
+                </h2>
+                <div class="approval-body">
+                    Nyaya never moves money on its own. Every verdict is a recommendation that requires a human reviewer to authorise.<br><br>
+                    What changes: your reviewer spends 30 seconds approving a pre-packaged analysis — not 3 hours building one.
+                </div>
+                <div class="trust-marker">
+                    <span class="trust-check">✓</span> RBI PA/PG Guideline compliant
+                </div>
+                <div class="trust-marker">
+                    <span class="trust-check">✓</span> Full audit trail on every decision
+                </div>
+            </div>
+            <div class="approval-right">
+                <div class="approval-card-wrap">
+                    <div class="ac-warning">
+                        ⚠ Awaiting Reviewer Decision<br>
+                        No funds move without your authorisation.
+                    </div>
+                    <button class="vc-btn-approve" style="background:var(--verified)">✓ Approve — Withhold ₹2,499 from payout</button>
+                    <button class="vc-btn-override">✗ Override AI Decision</button>
+                    <div class="ac-footer-note">
+                        Nyaya AI provides recommendations only. All actions require reviewer authorisation before execution.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-separator"></div>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-headline">Pricing that scales with your volume.</h2>
+            
+            <div class="pricing-grid">
+                <div class="tier tier-basic">
+                    <div class="t-name">Basic</div>
+                    <div class="t-price">₹299</div>
+                    <div class="t-period">/ month</div>
+                    <div class="t-desc">For teams handling under 50 disputes/month</div>
+                    <ul class="t-features">
+                        <li>Up to 5 disputes/month covered</li>
+                        <li>Up to ₹500 per dispute</li>
+                        <li>Standard resolution</li>
+                        <li>Basic analytics</li>
+                    </ul>
+                    <a href="#" class="t-btn-ghost">Get started</a>
+                </div>
+                
+                <div class="tier tier-pro">
+                    <div class="most-chosen">Most chosen</div>
+                    <div class="t-name">Pro</div>
+                    <div class="t-price">₹999</div>
+                    <div class="t-period">/ month</div>
+                    <div class="t-desc">For growing platforms with high dispute volume</div>
+                    <ul class="t-features">
+                        <li>Up to 20 disputes/month covered</li>
+                        <li>Up to ₹2,000 per dispute</li>
+                        <li>Priority resolution &lt; 2 hours</li>
+                        <li>Full analytics + merchant scores</li>
+                        <li>Fraud pattern alerts</li>
+                        <li>Dedicated reviewer queue</li>
+                    </ul>
+                    <a href="#" class="t-btn-filled">Start free trial</a>
+                </div>
+                
+                <div class="tier tier-ent">
+                    <div class="t-name">Enterprise</div>
+                    <div class="t-price">Custom</div>
+                    <div class="t-period"></div>
+                    <div class="t-desc">For platforms processing 1,000+ disputes/month</div>
+                    <ul class="t-features">
+                        <li>Unlimited disputes</li>
+                        <li>Up to ₹10,000 per dispute</li>
+                        <li>Real-time resolution</li>
+                        <li>API access</li>
+                        <li>White-label option</li>
+                        <li>SLA guarantee</li>
+                    </ul>
+                    <a href="#" class="t-btn-ghost">Talk to us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="fc-headline">
+                Your next dispute is<br>already in the queue.
+            </h2>
+            <div class="fc-sub">
+                See Nyaya resolve it — before your reviewer even opens their laptop.
+            </div>
+            <div class="fc-btns">
+                <a href="#" class="btn-fc-pri">See a live resolution</a>
+                <a href="#" class="btn-fc-sec">Read the docs</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="f-logo"><span class="icon">⚖</span> Nyaya</div>
+                    <div class="f-desc">Autonomous dispute resolution for payment platforms.</div>
+                </div>
+                <div>
+                    <div class="f-col-title">Product</div>
+                    <ul class="f-links">
+                        <li><a href="#how">How it works</a></li>
+                        <li><a href="#training">Training Studio</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="f-col-title">Legal</div>
+                    <ul class="f-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">RBI Compliance</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="f-col-title">Connect</div>
+                    <ul class="f-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f-bottom">
+                © 2026 Nyaya. Built for Indian fintech.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Nav scroll shadow & Mobile menu
+        const nav = document.getElementById('nav');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 20);
+        });
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+        
+        // Close mobile menu on click
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+            });
+        });
+
+        // 2. Verdict card cycling animation
+        const cases = [
+            { 
+                headline: 'AI recommends full refund',
+                amount: '₹2,499 to buyer', 
+                confidence: 89, 
+                color: 'var(--verified)',
+                votes: [
+                    { name: 'Evidence Agent', text: '✓ Supports Refund', type: 'vote-green' },
+                    { name: 'Merchant Agent', text: '✗ Disputes Claim', type: 'vote-red' },
+                    { name: 'Customer Agent', text: '✓ Strong Case', type: 'vote-green' },
+                    { name: 'Judge Agent', text: '✓ Full Refund', type: 'vote-green' }
+                ],
+                btnText: '✓ Approve — Withhold from payout'
+            },
+            { 
+                headline: 'AI recommends denial',
+                amount: '₹0 to buyer', 
+                confidence: 91, 
+                color: 'var(--flagged)',
+                votes: [
+                    { name: 'Evidence Agent', text: '✗ No Evidence', type: 'vote-red' },
+                    { name: 'Merchant Agent', text: '✓ Strong Proof', type: 'vote-green' },
+                    { name: 'Customer Agent', text: '✗ Weak Claim', type: 'vote-red' },
+                    { name: 'Judge Agent', text: '✗ Deny Claim', type: 'vote-red' }
+                ],
+                btnText: '✓ Approve — Deny customer claim'
+            },
+            { 
+                headline: 'AI recommends partial refund',
+                amount: '₹625 to buyer', 
+                confidence: 74, 
+                color: 'var(--amber)',
+                votes: [
+                    { name: 'Evidence Agent', text: '⚠ Mixed Proof', type: 'vote-red' },
+                    { name: 'Merchant Agent', text: '⚠ Partial Fault', type: 'vote-red' },
+                    { name: 'Customer Agent', text: '✓ Valid Delay', type: 'vote-green' },
+                    { name: 'Judge Agent', text: '⚠ Split Liability', type: 'vote-red' }
+                ],
+                btnText: '✓ Approve — Process partial refund'
+            }
+        ];
+
+        let currentCaseIdx = 0;
+        
+        const phase1 = document.getElementById('vc-phase-1');
+        const phase2 = document.getElementById('vc-phase-2');
+        const vcDots = document.getElementById('vc-dots');
+        const vcStatusText = document.getElementById('vc-status-text');
+        const vcStatusComplete = document.getElementById('vc-status-complete');
+        
+        const vcHeadline = document.getElementById('vc-headline');
+        const vcAmount = document.getElementById('vc-amount');
+        const vcConfVal = document.getElementById('vc-conf-val');
+        const vcConfFill = document.getElementById('vc-conf-fill');
+        const vcBtnApprove = document.getElementById('vc-btn-approve');
+        
+        const evVote = document.getElementById('vc-ev-vote');
+        const meVote = document.getElementById('vc-me-vote');
+        const cuVote = document.getElementById('vc-cu-vote');
+        const juVote = document.getElementById('vc-ju-vote');
+
+        function updateCardContent(caseData) {
+            vcHeadline.textContent = caseData.headline;
+            vcAmount.textContent = caseData.amount;
+            
+            evVote.textContent = caseData.votes[0].text;
+            evVote.className = 'vc-cell-vote ' + caseData.votes[0].type;
+            
+            meVote.textContent = caseData.votes[1].text;
+            meVote.className = 'vc-cell-vote ' + caseData.votes[1].type;
+            
+            cuVote.textContent = caseData.votes[2].text;
+            cuVote.className = 'vc-cell-vote ' + caseData.votes[2].type;
+            
+            juVote.textContent = caseData.votes[3].text;
+            juVote.className = 'vc-cell-vote ' + caseData.votes[3].type;
+            
+            vcConfVal.textContent = caseData.confidence + '%';
+            vcConfFill.style.width = caseData.confidence + '%';
+            vcConfFill.style.background = caseData.color;
+            
+            vcBtnApprove.textContent = caseData.btnText;
+            vcBtnApprove.style.background = caseData.color;
+        }
+
+        function cycleVerdict() {
+            // Start analyzing (Phase 1)
+            phase1.style.opacity = 1;
+            phase2.style.opacity = 0;
+            vcDots.style.display = 'flex';
+            vcStatusText.style.display = 'block';
+            vcStatusComplete.style.display = 'none';
+            vcConfFill.style.width = '0%';
+            
+            setTimeout(() => {
+                // Prepare new content
+                updateCardContent(cases[currentCaseIdx]);
+                
+                // Switch to Phase 2
+                phase1.style.opacity = 0;
+                phase2.style.opacity = 1;
+                vcDots.style.display = 'none';
+                vcStatusText.style.display = 'none';
+                vcStatusComplete.style.display = 'block';
+                vcStatusComplete.style.color = cases[currentCaseIdx].color;
+                
+                currentCaseIdx = (currentCaseIdx + 1) % cases.length;
+            }, 2000);
+        }
+
+        // Start cycle
+        cycleVerdict();
+        setInterval(cycleVerdict, 6000);
+
+        // 3. Stats counter animation
+        const statsSection = document.getElementById('stats-section');
+        const counters = document.querySelectorAll('.counter');
+        let statsAnimated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !statsAnimated) {
+                statsAnimated = true;
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const duration = 1500;
+                    const startTime = performance.now();
+                    const isFloat = !Number.isInteger(target);
+
+                    function easeOutQuart(x) {
+                        return 1 - Math.pow(1 - x, 4);
+                    }
+
+                    function updateNumber(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = easeOutQuart(progress);
+                        
+                        let currentVal = easeProgress * target;
+                        
+                        if (isFloat) {
+                            counter.innerText = currentVal.toFixed(1) + suffix;
+                        } else {
+                            counter.innerText = Math.round(currentVal) + suffix;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            if (isFloat) {
+                                counter.innerText = target.toFixed(1) + suffix;
+                            } else {
+                                counter.innerText = target + suffix;
+                            }
+                        }
+                    }
+                    requestAnimationFrame(updateNumber);
+                });
+            }
+        }, { threshold: 0.3 });
+
+        observer.observe(statsSection);
+
+        // 4. Hero entrance
+        window.addEventListener('load', () => {
+            const headline = document.getElementById('hero-headline');
+            setTimeout(() => {
+                headline.style.transition = 'opacity 600ms ease, transform 600ms ease';
+                headline.style.opacity = '1';
+                headline.style.transform = 'translateY(0)';
+            }, 100);
+        });
+        
+        // 5. Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

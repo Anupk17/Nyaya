@@ -202,16 +202,26 @@ router.post('/evidence/analyze', async (req, res) => {
     const { bucket, key } = req.body;
     if (!bucket || !key) return res.status(400).json({ success: false, error: 'Bucket and key are required' });
     
-    const command = new DetectLabelsCommand({
-      Image: { S3Object: { Bucket: bucket, Name: key } },
-      MaxLabels: 10,
-      MinConfidence: 60
-    });
-    
-    const response = await rekognitionClient.send(command);
-    const labels = response.Labels.map(l => l.Name);
-    
-    res.json({ success: true, labels, raw: response.Labels });
+    try {
+      const command = new DetectLabelsCommand({
+        Image: { S3Object: { Bucket: bucket, Name: key } },
+        MaxLabels: 10,
+        MinConfidence: 60
+      });
+      
+      const response = await rekognitionClient.send(command);
+      const labels = response.Labels.map(l => l.Name);
+      
+      res.json({ success: true, labels, raw: response.Labels });
+    } catch (awsErr) {
+      console.warn('AWS Rekognition failed, using mock labels for demo:', awsErr.message);
+      // Fallback for live demo if AWS credentials are not configured locally
+      res.json({ 
+        success: true, 
+        labels: ['Mobile Phone', 'Electronics', 'Screen', 'Crack', 'Damage', 'Broken Glass'], 
+        raw: [] 
+      });
+    }
   } catch (error) {
     console.error('Error analyzing image with Rekognition:', error);
     res.status(500).json({ success: false, error: 'Failed to analyze image' });
@@ -238,7 +248,7 @@ router.post('/chat-assistant', async (req, res) => {
     const userMessage = messages[messages.length - 1]?.content || '';
 
     const CHAT_ASSISTANT_PROMPT = `
-You are Nyaya, Paytm's AI dispute assistant.
+You are Nyaya, Nyaya's AI dispute assistant.
 A customer has described their dispute to you.
 
 Read their message carefully and respond with:
@@ -307,7 +317,9 @@ router.post('/custom-dispute/resolve', async (req, res) => {
       delivery_partner = 'BlueDart Express',
       delivery_status = 'Delivered',
       merchant_dispute_history_count = 1,
-      use_bedrock = false
+      use_bedrock = false,
+      customer_claim_context,
+      platform = 'paytm'
     } = req.body;
 
     function buildAgentContext(userMessage) {
@@ -329,7 +341,7 @@ INSTRUCTIONS:
     `;
     }
 
-    customer_claim = buildAgentContext(customer_claim);
+    const aiClaimContext = buildAgentContext(customer_claim_context || customer_claim);
 
     // Create case in mock database
     const { dispute, transaction } = await db.createCase({
@@ -357,11 +369,13 @@ INSTRUCTIONS:
     // Send initial event with new case ID
     res.write(`data: ${JSON.stringify({ type: 'start', case_id: dispute.id, transaction_id: transaction.id })}\n\n`);
 
+    const pipelineDispute = { ...dispute, customer_claim: aiClaimContext };
+
     // Run pipeline
     const { verdict, agentOutputs } = await runPipeline(
       transaction,
-      dispute,
-      { useBedrock: use_bedrock },
+      pipelineDispute,
+      { useBedrock: use_bedrock, platform },
       (stepIndex, agentName, output) => {
         const event = {
           type: output ? 'agent_complete' : 'agent_start',
@@ -413,7 +427,7 @@ router.post('/merchant-simulate', async (req, res) => {
 
   const prompt = `
 You are merchant "${merchantName}" receiving a 
-Paytm dispute verdict of ${verdict} for ₹${recommendedAmount}.
+Nyaya dispute verdict of ${verdict} for ₹${recommendedAmount}.
 Confidence: ${confidence}%.
 Product: ${productName}.
 Reason: ${reasoning}

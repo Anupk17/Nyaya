@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { saveTrainingExample } from '../lib/trainingDataCollector'
 
 export interface Dispute {
   id: string                    // PTM-XXXXX
@@ -31,7 +32,9 @@ export interface Dispute {
 }
 
 interface DisputeStore {
+  activePlatform: string
   disputes: Dispute[]
+  setActivePlatform: (platform: string) => void
   addDispute: (dispute: Dispute) => void
   updateDisputeVerdict: (
     id: string, 
@@ -45,7 +48,10 @@ interface DisputeStore {
 const SEED_DISPUTES: Dispute[] = [];
 
 export const useDisputeStore = create<DisputeStore>((set) => ({
+  activePlatform: 'paytm',
   disputes: SEED_DISPUTES,
+  
+  setActivePlatform: (platform) => set({ activePlatform: platform }),
   
   addDispute: (dispute) => set((state) => ({
     disputes: [dispute, ...state.disputes]
@@ -64,37 +70,49 @@ export const useDisputeStore = create<DisputeStore>((set) => ({
     )
   })),
   
-  approveDispute: (id) => set((state) => ({
-    disputes: state.disputes.map(d =>
-      d.id === id
-        ? { 
-            ...d, 
-            status: 'APPROVED',
-            reviewerAction: {
-              action: 'APPROVED',
-              reason: '',
-              timestamp: new Date()
+  approveDispute: (id) => set((state) => {
+    const dispute = state.disputes.find(d => d.id === id);
+    if (dispute && dispute.aiVerdict) {
+      saveTrainingExample(dispute, dispute.userMessage, dispute.aiVerdict, 'APPROVED');
+    }
+    return {
+      disputes: state.disputes.map(d =>
+        d.id === id
+          ? { 
+              ...d, 
+              status: 'APPROVED',
+              reviewerAction: {
+                action: 'APPROVED',
+                reason: '',
+                timestamp: new Date()
+              }
             }
-          }
-        : d
-    )
-  })),
+          : d
+      )
+    };
+  }),
   
-  overrideDispute: (id, reason) => set((state) => ({
-    disputes: state.disputes.map(d =>
-      d.id === id
-        ? {
-            ...d,
-            status: 'OVERRIDDEN',
-            reviewerAction: {
-              action: 'OVERRIDDEN',
-              reason,
-              timestamp: new Date()
+  overrideDispute: (id, reason) => set((state) => {
+    const dispute = state.disputes.find(d => d.id === id);
+    if (dispute && dispute.aiVerdict) {
+      saveTrainingExample(dispute, dispute.userMessage, dispute.aiVerdict, 'OVERRIDDEN');
+    }
+    return {
+      disputes: state.disputes.map(d =>
+        d.id === id
+          ? {
+              ...d,
+              status: 'OVERRIDDEN',
+              reviewerAction: {
+                action: 'OVERRIDDEN',
+                reason,
+                timestamp: new Date()
+              }
             }
-          }
-        : d
-    )
-  })),
+          : d
+      )
+    };
+  }),
   
   escalateDispute: (id) => set((state) => ({
     disputes: state.disputes.map(d =>

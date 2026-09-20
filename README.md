@@ -1,6 +1,4 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Hackathon-Paytm%20Build%20for%20India-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Track%203-Autonomous%20Teammate-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/AI-4%20Agent%20Court-green?style=for-the-badge" />
 </p>
 
@@ -294,7 +292,7 @@ See [`render.yaml`](render.yaml) for the deployment blueprint.
 
 ## 👥 Team
 
-Built for the **Paytm Build for India Hackathon — Track 3: Autonomous Teammate**
+
 
 ---
 
