@@ -116,7 +116,8 @@ Nyaya acts as an **Autonomous Dispute Teammate** that:
 |-------|-----------|
 | **Frontend** | React 18, Vite, Tailwind CSS, Framer Motion |
 | **Backend** | Node.js, Express |
-| **LLM Engine** | Groq Cloud (LLaMA 3.3 70B for Judge, LLaMA 3.1 8B for others) |
+| **LLM Engine** | Groq Cloud (LLaMA 3.3 70B for Judge, LLaMA 3.1 8B for others) & Local Trained LLMs |
+| **Language Translation** | Sarvam AI (Custom Trained Indic LLM Model) |
 | **Evidence Storage** | AWS S3 (presigned uploads) |
 | **Image Analysis** | AWS Rekognition (label detection on evidence photos) |
 | **Memory/RAG** | Cognee (buyer/merchant history, fraud patterns) |
