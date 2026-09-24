@@ -1,4 +1,4 @@
-const SARVAM_API_KEY = process.env.SARVAM_API_KEY;
+ const SARVAM_API_KEY = process.env.SARVAM_API_KEY;
 const BASE_URL = 'https://api.sarvam.ai';
 
 async function translateToEnglish(text) {

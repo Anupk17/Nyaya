@@ -87,9 +87,13 @@ async function run(evidenceSummary, merchantPosition, customerPosition, transact
     }
   } else {
     const apiKey = process.env.GROQ_API_KEY_JUDGE || process.env.GROQ_API_KEY;
-    if (apiKey && apiKey !== 'gsk_your_groq_api_key_here') {
+    const localUrl = process.env.LOCAL_LLM_URL;
+    if (localUrl || (apiKey && apiKey !== 'gsk_your_groq_api_key_here')) {
       try {
-        const groq = new Groq({ apiKey });
+        const groq = new Groq({ 
+          apiKey: localUrl ? 'lm-studio' : apiKey,
+          baseURL: localUrl || undefined
+        });
         const userMessage = `EVIDENCE SUMMARY:\n${JSON.stringify(evidenceSummary, null, 2)}\n\nMERCHANT'S POSITION:\n${JSON.stringify(merchantPosition, null, 2)}\n\nCUSTOMER'S POSITION:\n${JSON.stringify(customerPosition, null, 2)}\n\nTRANSACTION AMOUNT: ${config.currency}${transactionAmount}\n\nDeliver your verdict.`;
 
         const completion = await groq.chat.completions.create({
