@@ -55,6 +55,49 @@ function AgentCard({ agent, content, isLoading }) {
         </p>
       ) : content ? (
         <div style={{ fontSize: 13, color: '#374151', lineHeight: 1.6 }}>
+          {/* Judge Agent Specific Content */}
+          {content.recommendation && (
+            <div style={{ marginBottom: 8, display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
+              <span style={{
+                fontSize: 11,
+                fontWeight: 800,
+                padding: '3px 10px',
+                borderRadius: 6,
+                background: content.recommendation === 'CONTEST' ? '#ECFDF5' : (content.recommendation === 'ESCALATE' ? '#FFFBEB' : '#FEF2F2'),
+                color: content.recommendation === 'CONTEST' ? '#065F46' : (content.recommendation === 'ESCALATE' ? '#92400E' : '#991B1B'),
+                border: `1px solid ${content.recommendation === 'CONTEST' ? '#A7F3D0' : (content.recommendation === 'ESCALATE' ? '#FDE68A' : '#FECACA')}`
+              }}>
+                RECOMMENDATION: {content.recommendation}
+              </span>
+              {content.win_likelihood !== undefined && (
+                <span style={{ fontSize: 12, fontWeight: 700, color: '#374151' }}>
+                  Win Likelihood: {content.win_likelihood}% (AI estimate)
+                </span>
+              )}
+              {content.confidence !== undefined && (
+                <span style={{ fontSize: 12, color: '#6B7280' }}>
+                  · Confidence: {content.confidence}%
+                </span>
+              )}
+            </div>
+          )}
+          {content.conflict_summary && (
+            <div style={{ padding: '6px 10px', background: '#FFFBEB', borderRadius: 6, border: '1px solid #FDE68A', fontSize: 12, color: '#92400E', marginBottom: 8 }}>
+              ⚠️ {content.conflict_summary}
+            </div>
+          )}
+          {content.reasoning?.length > 0 && (
+            <ul style={{ listStyle: 'none', padding: 0, margin: '6px 0 8px 0' }}>
+              {content.reasoning.map((r, i) => (
+                <li key={i} style={{ display: 'flex', gap: 6, marginBottom: 4 }}>
+                  <span style={{ color: '#8B5CF6', fontWeight: 800 }}>•</span>
+                  <span>{r}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Evidence, Merchant, and Customer Agent Content */}
           {content.summary && <p style={{ margin: '0 0 6px 0' }}>{content.summary}</p>}
           {content.argument_summary && <p style={{ margin: '0 0 6px 0', fontWeight: 600 }}>{content.argument_summary}</p>}
           {content.covered?.length > 0 && (
@@ -133,18 +176,21 @@ export function CaseDetail() {
   const [isRunning, setIsRunning] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
 
-  const loadCase = async () => {
-    setLoading(true);
+  const loadCase = async (silent = false) => {
+    if (!silent) setLoading(true);
     try {
       const data = await fetchDispute(id);
       const disp = data.dispute || data;
+      if (data.audit_history) {
+        disp.audit_history = data.audit_history;
+      }
       setDispute(disp);
       if (data.verdict) setVerdict(data.verdict);
-      setLoading(false);
+      if (!silent) setLoading(false);
     } catch (err) {
       console.error(err);
       setError(err.message || 'Failed to load dispute');
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   };
 
@@ -171,14 +217,29 @@ export function CaseDetail() {
           setVerdict(event.verdict);
           setCurrentStep(4);
           setIsRunning(false);
+          if (event.agent_outputs && event.agent_outputs.length > 0) {
+            setAgentMessages(event.agent_outputs.map(ao => ({
+              agent: ao.agent,
+              content: ao.content,
+              isLoading: false
+            })));
+          } else {
+            setAgentMessages(prev => prev.map(m => ({
+              ...m,
+              isLoading: false,
+              content: m.content || (m.agent === 'judge' ? event.verdict : null)
+            })));
+          }
         } else if (event.type === 'error') {
           setError(event.error);
           setIsRunning(false);
+          setAgentMessages(prev => prev.map(m => ({ ...m, isLoading: false })));
         }
       });
     } catch (err) {
       setError(err.message || 'Pipeline analysis failed');
       setIsRunning(false);
+      setAgentMessages(prev => prev.map(m => ({ ...m, isLoading: false })));
     }
   };
 
@@ -282,7 +343,7 @@ export function CaseDetail() {
               dispute={dispute}
               disputeId={dispute.dispute_id}
               agentOutputs={agentMessages}
-              onActionCompleted={() => loadCase()}
+              onActionCompleted={() => loadCase(true)}
             />
           </div>
         )}

@@ -65,6 +65,19 @@ export default function VerdictCard({ verdict, dispute, disputeId, agentOutputs 
     }
   }, [verdict, dispute, activeDisputeId]);
 
+  // Restore execution result from dispute audit history if already executed
+  useEffect(() => {
+    if (!executionResult && dispute?.audit_history && dispute.audit_history.length > 0) {
+      const latestAudit = dispute.audit_history[dispute.audit_history.length - 1];
+      setExecutionResult({
+        success: true,
+        action: latestAudit.action,
+        dispute_id: activeDisputeId,
+        audit_entry: latestAudit
+      });
+    }
+  }, [dispute, activeDisputeId, executionResult]);
+
   // Translate reasoning when language changes
   useEffect(() => {
     if (selectedLang === 'en-IN') {
@@ -666,7 +679,11 @@ export default function VerdictCard({ verdict, dispute, disputeId, agentOutputs 
 
           {/* Main Action Button */}
           <button
-            onClick={() => handleApproveAction(rec, contestNote, false)}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              handleApproveAction(rec, contestNote, false);
+            }}
             disabled={isExecuting || isContestBlocked || !!executionResult}
             style={{
               padding: '10px 22px',

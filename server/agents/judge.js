@@ -95,7 +95,9 @@ async function run(evidenceSummary, merchantPos, cardholderPos, dispute, memoryP
   try {
     const client = new Groq({
       apiKey: (localUrl && !apiKey) ? 'lm-studio' : (apiKey || 'dummy'),
-      baseURL: localUrl || undefined
+      baseURL: localUrl || undefined,
+      maxRetries: 1,
+      timeout: 8000
     });
 
     const userMessage = `DISPUTE CASE DOSSIER:
@@ -127,7 +129,7 @@ Deliver your binding AI recommendation and checklist.`;
       ],
       model: 'qwen/qwen3.8-27b',
       temperature: 0.1,
-      max_tokens: 1024,
+      max_tokens: 450,
       response_format: { type: 'json_object' }
     });
 

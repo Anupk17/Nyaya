@@ -29,7 +29,7 @@ async function run(evidenceSummary, dispute, options = {}) {
     };
   }
 
-  const groq = new Groq({ apiKey });
+  const groq = new Groq({ apiKey, maxRetries: 1, timeout: 8000 });
   const userMessage = `EVIDENCE SUMMARY:
 ${JSON.stringify(evidenceSummary, null, 2)}
 
@@ -51,7 +51,7 @@ Formulate the cardholder and issuing bank case.`;
     ],
     model: 'qwen/qwen3.8-27b',
     temperature: 0.1,
-    max_tokens: 1024,
+    max_tokens: 350,
     response_format: { type: 'json_object' }
   });
 
