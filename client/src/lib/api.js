@@ -44,6 +44,62 @@ export async function fetchCase(caseId) {
 }
 
 /**
+ * Resolve a custom user-submitted dispute with real-time SSE streaming
+ */
+export function resolveCustomDispute(payload, onEvent) {
+  return new Promise((resolve, reject) => {
+    fetch(`${API_BASE}/custom-dispute/resolve`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(response => {
+      if (!response.ok) {
+        reject(new Error(`HTTP ${response.status}`));
+        return;
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      function read() {
+        reader.read().then(({ done, value }) => {
+          if (done) {
+            resolve();
+            return;
+          }
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop();
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              try {
+                const data = JSON.parse(line.slice(6));
+                onEvent(data);
+                if (data.type === 'complete') {
+                  resolve(data);
+                }
+                if (data.type === 'error') {
+                  reject(new Error(data.error));
+                }
+              } catch (e) {
+                console.error('Failed to parse SSE event:', line);
+              }
+            }
+          }
+
+          read();
+        }).catch(reject);
+      }
+
+      read();
+    }).catch(reject);
+  });
+}
+
+/**
  * Run the 4-Agent Defense Pipeline for a dispute via SSE
  */
 export function analyzeDispute(disputeId, onEvent, memoryPrecedents = null) {

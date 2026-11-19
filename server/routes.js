@@ -215,6 +215,80 @@ router.post('/cases/:id/resolve', async (req, res) => {
   return router.handle(req, res);
 });
 
+// POST /api/custom-dispute/resolve — handle custom user-submitted dispute in playground/workspace
+router.post('/custom-dispute/resolve', async (req, res) => {
+  try {
+    const customId = `disp_custom_${Date.now()}`;
+    const dispute = {
+      dispute_id: customId,
+      dispute_type: 'DISPUTE',
+      stage: 'DISPUTE',
+      reason_code: req.body.category || '13.1',
+      reason_description: req.body.customer_claim || req.body.title || 'Custom dispute case',
+      dispute_amount: parseFloat(req.body.amount || 1499),
+      dispute_currency: 'INR',
+      created_at: new Date().toISOString(),
+      respond_by: new Date(Date.now() + 48 * 3600 * 1000).toISOString(),
+      preferred_evidence: [
+        'Proof of Delivery',
+        'Invoice / Bill of Supply',
+        'Customer Communication Log'
+      ],
+      dispute_evidence: (req.body.proof_attachments || []).map((p, idx) => ({
+        doc_type: p.name || 'Supporting Proof',
+        file_name: p.name || `proof_${idx}.jpg`,
+        file_url: p.url || '/uploads/mock.pdf',
+        submitted_at: new Date().toISOString()
+      })),
+      order_details: {
+        order_id: `ord_${Date.now().toString().slice(-6)}`,
+        order_amount: parseFloat(req.body.amount || 1499),
+        order_currency: 'INR'
+      },
+      customer_details: {
+        customer_name: 'Customer',
+        customer_claim: req.body.customer_claim
+      }
+    };
+
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive',
+      'X-Accel-Buffering': 'no'
+    });
+
+    res.write(`data: ${JSON.stringify({ type: 'start', dispute_id: customId })}\n\n`);
+
+    const { verdict, agentOutputs } = await runPipeline(
+      dispute,
+      { memoryPrecedents: null },
+      (stepIndex, agentName, output) => {
+        const event = {
+          type: output ? 'agent_complete' : 'agent_start',
+          step: stepIndex,
+          agent: agentName,
+          output: output || null
+        };
+        res.write(`data: ${JSON.stringify(event)}\n\n`);
+      }
+    );
+
+    disputeVerdicts.set(customId, verdict);
+
+    res.write(`data: ${JSON.stringify({ type: 'complete', verdict, agent_outputs: agentOutputs })}\n\n`);
+    res.end();
+  } catch (error) {
+    console.error('Error resolving custom dispute:', error);
+    if (res.headersSent) {
+      res.write(`data: ${JSON.stringify({ type: 'error', error: error.message })}\n\n`);
+      res.end();
+    } else {
+      res.status(500).json({ success: false, error: error.message });
+    }
+  }
+});
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 5. HUMAN EXECUTION ROUTE (Execute via Cashfree API)
 // ─────────────────────────────────────────────────────────────────────────────
