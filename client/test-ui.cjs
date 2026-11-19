@@ -11,7 +11,7 @@ const { chromium } = require('playwright');
 
     console.log('Filling input...');
     const inputSelector = 'input[placeholder="Describe your dispute or upload evidence..."]';
-    await page.fill(inputSelector, 'I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Paytm. Order ID: PTM-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original Paytm invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.');
+    await page.fill(inputSelector, 'I ordered boAt Airdopes 141 wireless earbuds worth ₹2,499 from QuickMart Electronics on Cashfree. Order ID: CF-88213. The delivery app shows delivered yesterday at 3pm but I was home all day and nobody rang the bell. There is NO OTP confirmation in my messages. I never received any package. I have my original invoice showing ₹2,499 paid. I filed this complaint within 3 hours of the supposed delivery. Please analyze my dispute.');
     
     console.log('Clicking Send...');
     await page.click('button[type="submit"]');
