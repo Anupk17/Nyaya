@@ -8,7 +8,12 @@ dist/
 # Environment files (contain secrets)
 .env
 server/.env
+client/.env
 client/.env.local
+
+# Uploads
+uploads/
+server/uploads/
 
 # Python
 __pycache__/

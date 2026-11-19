@@ -1,0 +1,236 @@
+[
+  {
+    "id": "audit_1795064261484_jwbt",
+    "timestamp": "2026-11-19T04:57:41.484Z",
+    "dispute_id": "cf_disp_101",
+    "order_id": "order_cf_9001",
+    "action": "REFUND",
+    "approved_by": "ops_reviewer_priya",
+    "ai_verdict": "ESCALATE",
+    "is_override": true,
+    "override_reason": "Ops judgment override",
+    "amount": 1499,
+    "note": "Refund issued early per AI recommendation to avoid dispute fees.",
+    "result": {
+      "status": "SUCCESS",
+      "order_id": "order_cf_9001",
+      "refund_id": "ref_1795064261482",
+      "refund_amount": 1499,
+      "refund_status": "SUCCESS",
+      "created_at": "2026-11-19T04:57:41.483Z",
+      "message": "Refund of Rs 1499 successfully initiated on Cashfree."
+    }
+  },
+  {
+    "id": "audit_1795064173889_hvxm",
+    "timestamp": "2026-11-19T04:56:13.889Z",
+    "dispute_id": "cf_disp_105",
+    "order_id": "order_cf_9005",
+    "action": "CONTEST",
+    "approved_by": "ops_lead",
+    "ai_verdict": "CONTEST",
+    "is_override": false,
+    "override_reason": null,
+    "amount": 2100,
+    "note": "",
+    "result": {
+      "status": "SUCCESS",
+      "dispute_id": "cf_disp_105",
+      "action": "CONTESTED",
+      "message": "Evidence documents submitted to Cashfree dispute desk.",
+      "dispute": {
+        "dispute_id": "cf_disp_105",
+        "dispute_type": "DISPUTE",
+        "dispute_status": "CONTESTED",
+        "stage": "DISPUTE",
+        "reason_code": "13.2",
+        "reason_description": "Goods Damaged in Transit: Package received crushed with internal item damaged.",
+        "dispute_amount": 2100,
+        "dispute_currency": "INR",
+        "created_at": "2026-11-18T08:55:26.691Z",
+        "respond_by": "2026-11-21T14:55:26.691Z",
+        "preferred_evidence": [
+          "Outer Packaging Condition Photos",
+          "Damaged Item High-Resolution Photos",
+          "Courier Transit Damage Exception Report",
+          "Carrier Liability / Insurance Claim ID"
+        ],
+        "dispute_evidence": [
+          {
+            "doc_type": "Damage Photos",
+            "file_name": "Crushed-Box-Photo.jpg",
+            "file_url": "/uploads/samples/Damage-Box.jpg",
+            "submitted_at": "2026-11-18T13:55:26.691Z"
+          },
+          {
+            "doc_type": "Carrier Damage Endorsement",
+            "file_name": "Courier-Damage-Report.pdf",
+            "file_url": "/uploads/samples/Carrier-Damage.pdf",
+            "submitted_at": "2026-11-18T13:55:26.691Z"
+          },
+          {
+            "doc_type": "Damage Photos",
+            "file_name": "uploaded_doc.pdf",
+            "file_url": "/uploads/cf_disp_105/doc.pdf",
+            "submitted_at": "2026-11-19T04:56:13.888Z"
+          },
+          {
+            "doc_type": "Carrier Damage Endorsement",
+            "file_name": "uploaded_doc.pdf",
+            "file_url": "/uploads/cf_disp_105/doc.pdf",
+            "submitted_at": "2026-11-19T04:56:13.888Z"
+          }
+        ],
+        "order_details": {
+          "order_id": "order_cf_9005",
+          "order_amount": 2100,
+          "order_currency": "INR",
+          "order_date": "2026-11-14T04:55:26.691Z",
+          "order_status": "PAID",
+          "items": [
+            {
+              "name": "Ceramic Table Lamp & Shade",
+              "qty": 1,
+              "price": 2100,
+              "sku": "LMP-CRM-WHT"
+            }
+          ],
+          "delivery_details": {
+            "courier": "Ekart Logistics",
+            "tracking_number": "EKT-902188",
+            "status": "DELIVERED",
+            "delivered_at": "2026-11-17T04:55:26.691Z",
+            "otp_verified": true,
+            "delivery_address": "42, Park Street, Kolkata 700016"
+          }
+        },
+        "customer_details": {
+          "customer_id": "cust_8805",
+          "customer_name": "Pooja Bannerjee",
+          "customer_email": "pooja.b@example.com",
+          "customer_phone": "+91 9830112233",
+          "customer_claim": "Outer carton was completely torn and the ceramic base is cracked into pieces upon opening. Unusable.",
+          "is_repeat_customer": false
+        },
+        "contested_at": "2026-11-19T04:56:13.888Z",
+        "contest_note": "Evidence dossier submitted via Nyaya AI Chargeback Defense"
+      }
+    }
+  },
+  {
+    "id": "audit_1795063874283_5e3l",
+    "timestamp": "2026-11-19T04:51:14.283Z",
+    "dispute_id": "cf_disp_102",
+    "order_id": "order_cf_9002",
+    "action": "CONTEST",
+    "approved_by": "Ops Reviewer Vikram",
+    "ai_verdict": "ESCALATE",
+    "is_override": true,
+    "override_reason": "Ops judgment override",
+    "amount": 6450,
+    "note": "Delivery OTP and signed POD verified on file.",
+    "result": {
+      "status": "SUCCESS",
+      "dispute_id": "cf_disp_102",
+      "action": "CONTESTED",
+      "message": "Evidence documents submitted to Cashfree dispute desk.",
+      "dispute": {
+        "dispute_id": "cf_disp_102",
+        "dispute_type": "CHARGEBACK",
+        "dispute_status": "CONTESTED",
+        "stage": "CHARGEBACK",
+        "reason_code": "10.4",
+        "reason_description": "Fraudulent Transaction: Cardholder denies authorizing the transaction or recognizing the merchant.",
+        "dispute_amount": 6450,
+        "dispute_currency": "INR",
+        "created_at": "2026-11-17T04:50:36.092Z",
+        "respond_by": "2026-11-22T10:50:36.092Z",
+        "preferred_evidence": [
+          "Proof of Delivery with Geo-Coordinates",
+          "Delivery OTP Verification Log",
+          "Original Invoice / Bill of Supply",
+          "Cardholder IP and Device Signature Match",
+          "Account Login History"
+        ],
+        "dispute_evidence": [
+          {
+            "doc_type": "Delivery Proof",
+            "file_name": "POD-Signed-6450.pdf",
+            "file_url": "/uploads/samples/POD-Signed.pdf",
+            "submitted_at": "2026-11-17T12:50:36.092Z"
+          },
+          {
+            "doc_type": "OTP Verification Log",
+            "file_name": "OTP-Audit-9921.json",
+            "file_url": "/uploads/samples/OTP-Log.json",
+            "submitted_at": "2026-11-17T12:50:36.092Z"
+          },
+          {
+            "doc_type": "Invoice",
+            "file_name": "INV-102-Electronics.pdf",
+            "file_url": "/uploads/samples/INV-102.pdf",
+            "submitted_at": "2026-11-17T12:50:36.092Z"
+          },
+          {
+            "doc_type": "Delivery Proof",
+            "file_name": "uploaded_doc.pdf",
+            "file_url": "/uploads/cf_disp_102/doc.pdf",
+            "submitted_at": "2026-11-19T04:51:14.283Z"
+          },
+          {
+            "doc_type": "OTP Verification Log",
+            "file_name": "uploaded_doc.pdf",
+            "file_url": "/uploads/cf_disp_102/doc.pdf",
+            "submitted_at": "2026-11-19T04:51:14.283Z"
+          },
+          {
+            "doc_type": "Invoice",
+            "file_name": "uploaded_doc.pdf",
+            "file_url": "/uploads/cf_disp_102/doc.pdf",
+            "submitted_at": "2026-11-19T04:51:14.283Z"
+          }
+        ],
+        "order_details": {
+          "order_id": "order_cf_9002",
+          "order_amount": 6450,
+          "order_currency": "INR",
+          "order_date": "2026-11-09T04:50:36.092Z",
+          "order_status": "PAID",
+          "items": [
+            {
+              "name": "Sony WH-CH520 Wireless Headphones",
+              "qty": 1,
+              "price": 4490,
+              "sku": "SNY-WH-BLK"
+            },
+            {
+              "name": "Fast Charger 65W GaN",
+              "qty": 1,
+              "price": 1960,
+              "sku": "GAN-65W"
+            }
+          ],
+          "delivery_details": {
+            "courier": "Delhivery Express",
+            "tracking_number": "DEL-44119902",
+            "status": "DELIVERED",
+            "delivered_at": "2026-11-11T04:50:36.092Z",
+            "otp_verified": true,
+            "otp_timestamp": "2026-11-11T04:52:36.092Z",
+            "delivery_address": "Tower 3, Apt 11B, DLF Phase 5, Gurugram 122002"
+          }
+        },
+        "customer_details": {
+          "customer_id": "cust_8802",
+          "customer_name": "Vikram Malhotra",
+          "customer_email": "vikram.m@example.com",
+          "customer_phone": "+91 9811223344",
+          "customer_claim": "Unauthorized credit card debit of Rs 6,450. I was travelling abroad on this date and did not authorize this purchase.",
+          "is_repeat_customer": true
+        },
+        "contested_at": "2026-11-19T04:51:14.283Z",
+        "contest_note": "Delivery OTP and signed POD verified on file."
+      }
+    }
+  }
+]
