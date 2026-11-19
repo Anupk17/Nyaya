@@ -571,18 +571,20 @@ export default function VerdictCard({ verdict, dispute, disputeId, agentOutputs 
       {executionResult && (
         <div style={{
           padding: '16px 28px',
-          background: '#ECFDF5',
-          borderBottom: '1px solid #A7F3D0',
+          background: executionResult.action === 'ESCALATE' ? '#FFFBEB' : '#ECFDF5',
+          borderBottom: `1px solid ${executionResult.action === 'ESCALATE' ? '#FDE68A' : '#A7F3D0'}`,
           display: 'flex',
           alignItems: 'center',
           gap: 12
         }}>
-          <CheckCircle2 size={24} color="#059669" />
+          <CheckCircle2 size={24} color={executionResult.action === 'ESCALATE' ? '#D97706' : '#059669'} />
           <div>
-            <div style={{ fontSize: 14, fontWeight: 800, color: '#065F46' }}>
-              Action Executed Successfully on Cashfree ({executionResult.action})
+            <div style={{ fontSize: 14, fontWeight: 800, color: executionResult.action === 'ESCALATE' ? '#92400E' : '#065F46' }}>
+              {executionResult.action === 'ESCALATE'
+                ? 'Dispute Successfully Escalated to Senior Reviewer'
+                : `Action Executed Successfully on Cashfree (${executionResult.action})`}
             </div>
-            <div style={{ fontSize: 12, color: '#047857', marginTop: 2 }}>
+            <div style={{ fontSize: 12, color: executionResult.action === 'ESCALATE' ? '#B45309' : '#047857', marginTop: 2 }}>
               Audit Entry: ID {executionResult.audit_entry?.id} · Approved by {executionResult.audit_entry?.approved_by} at {new Date(executionResult.audit_entry?.timestamp).toLocaleTimeString()}
             </div>
           </div>

@@ -1,5 +1,26 @@
 [
   {
+    "id": "audit_1795065229702_i6ww",
+    "timestamp": "2026-11-19T05:13:49.702Z",
+    "dispute_id": "cf_disp_102",
+    "order_id": "order_cf_9002",
+    "action": "ESCALATE",
+    "approved_by": "Ops Reviewer",
+    "ai_verdict": "ESCALATE",
+    "is_override": false,
+    "override_reason": null,
+    "amount": 6450,
+    "note": "Escalated due to fraud flag",
+    "result": {
+      "status": "SUCCESS",
+      "dispute_id": "cf_disp_102",
+      "action": "ESCALATED",
+      "message": "Dispute referred to Senior Merchant Operations Reviewer for high-risk / manual adjudication.",
+      "escalated_at": "2026-11-19T05:13:49.701Z",
+      "escalated_by": "Ops Reviewer"
+    }
+  },
+  {
     "id": "audit_1795064261484_jwbt",
     "timestamp": "2026-11-19T04:57:41.484Z",
     "dispute_id": "cf_disp_101",

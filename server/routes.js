@@ -316,10 +316,10 @@ router.post('/disputes/:id/execute', async (req, res) => {
       });
     }
 
-    if (!['CONTEST', 'ACCEPT', 'REFUND'].includes(action)) {
+    if (!['CONTEST', 'ACCEPT', 'REFUND', 'ESCALATE'].includes(action)) {
       return res.status(400).json({
         success: false,
-        error: `Invalid action '${action}'. Must be CONTEST, ACCEPT, or REFUND.`
+        error: `Invalid action '${action}'. Must be CONTEST, ACCEPT, REFUND, or ESCALATE.`
       });
     }
 
@@ -365,6 +365,16 @@ router.post('/disputes/:id/execute', async (req, res) => {
         refundId,
         note || 'Dispute conceded - customer refund issued via Nyaya'
       );
+    } else if (action === 'ESCALATE') {
+      cashfreeResult = {
+        status: 'SUCCESS',
+        dispute_id: disputeId,
+        action: 'ESCALATED',
+        message: 'Dispute referred to Senior Merchant Operations Reviewer for high-risk / manual adjudication.',
+        escalated_at: new Date().toISOString(),
+        escalated_by: approvedBy.trim()
+      };
+      dispute.dispute_status = 'UNDER_SENIOR_REVIEW';
     }
 
     // 4. Record Audit Log
